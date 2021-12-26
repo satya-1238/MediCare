@@ -8,9 +8,8 @@ const port=1000;
 
 
 
-
-
-
+// Use express router
+app.use('/',require('./routes'));
 
 
 // Server listener

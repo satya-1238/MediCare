@@ -32,7 +32,10 @@
   /* border: 2px solid red; */
 }
 #login{
-    padding: 5px;
+    padding: 3px;
+    padding-left: 15px;
+    padding-right: 15px;
+    /* margin: 5px; */
     border-radius:0.5rem;
     border:2px solid white;
 }

@@ -1,4 +1,7 @@
-module.exports.profile=function(req,res)
+
+module.exports.SignIn=function(req,res)
 {
-    return res.end('<h1> Profile Page </h1>');
+    return res.render('users_sign_in',{
+        title:"Medicare-SignIn"
+    })
 }

@@ -10,6 +10,8 @@ router.get('/',homeController.home);
 // use another routes
 router.use('/users',require('./users'));
 router.use('/mdr',require('./mdr'));
+router.use('/doctors',require('./doctors'));
+router.use('/patients',require('./patients'));
 
 
 

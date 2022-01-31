@@ -38,6 +38,12 @@ const doctorSchema=new mongoose.Schema({
 
 });
 
-
+// doctorSchema.index(
+//     {
+//         // name:"text",
+//         // locations:"text"
+//     }
+    
+//     );
 const Doctor=mongoose.model('Doctor',doctorSchema);
 module.exports=Doctor;

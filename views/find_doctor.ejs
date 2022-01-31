@@ -1,0 +1,44 @@
+<link rel="stylesheet" href="/css/find_doctor.css">
+<section id="doctors" class="section ">
+    <div class="search">
+    <form class="searchform" action="/doctors/search" method="GET">
+        <input class="bar" type="text" placeholder="Search Doctors..." name="docname">
+        <button><i class="fas fa-search"></i></button>
+    </form>
+</div>
+        <div class="grid-container">
+
+            
+                <% 
+
+                for(d of doctors_list)
+                {%>
+                         <div class="grid-item" id="serv-1">
+                             <ul class="outer">
+                                 <ul class="photo-name">
+                                     <li><img src="/images/pathology.webp" alt="can't open"></li>
+                                     <li class="name">
+                
+                                        <h3><%=d.name%></h3>
+                                     </li>
+                                 </ul>
+                                 <li class="same"><p>Services</p></li>
+                                 <li class="same"><p>Locations</p></li>
+                                 <!-- <li class="same"><p>Languages</p></li> -->
+                                 <li class="appointment"><a href="">GET AN APPOINTMENT</a></li>
+                                 <li class="appointment"><a href="/doctors/profile/<%=d.id%>">VIEW PROFILE</a></li>
+                             </ul>
+                             
+                             <!-- <a href="">
+                                 <img src="/images/pathology.webp" alt="can't open">
+                                 <span><%=d.name%></span>
+                             </a> -->
+                         </div>
+                 <%} %> 
+                         
+            <!-- </div> -->
+            
+        </div>
+</section>
+    
+

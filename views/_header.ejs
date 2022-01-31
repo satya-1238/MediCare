@@ -9,8 +9,10 @@
             <li class="nav-items"><a href="#contact">Contact</a></li>
             
             <%if(locals.doctor){%>
+                
                 <li class="nav-items">
-                    <a href="/doctors/profile/:id"><%=doctor.name%></a>
+                    <a href="/doctors/profile/<%=doctor.id%>"><%=doctor.name%></a>
+                    <!-- <a href="doctors/profile/.id"><%=doctor.email%></a> -->
                 </li>
                 <li class="nav-items">
                     <a href="/doctors/sign-out"><button id="login">SignOut</button></a>
@@ -19,7 +21,7 @@
             <%}
             else if(locals.patient){%>
                 <li class="nav-items">
-                    <a href="/patients/profile/:id"><%=patient.name%></a>
+                    <a href="/patients/profile/<%=patient.id%>"><%=patient.name%></a>
                 </li>
                 <li class="nav-items">
                     <a href="/patients/sign-out"><button id="login">SignOut</button></a>

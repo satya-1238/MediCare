@@ -27,13 +27,11 @@
     box-shadow: 0px 0px 6px 4px rgba(230, 196, 196, 0.3);
 }
 #contact {
-
-
-
     background-color: #0abcf9;
     background-image: linear-gradient(50deg, #2857a4 0%, #403066 74%);
     color: white;
-    padding-bottom: 40px;
+    /* margin-top: 10rem; */
+    /* padding-bottom: 40px; */
 }
 
 #contact h1,
@@ -52,6 +50,7 @@
 #my-details-container {
     width: 35%;
     margin-left: 6%;
+    margin-top: 2rem;
 }
 
 #my-details-container h3 {
@@ -61,6 +60,7 @@
 }
 
 #contact-form-container {
+    margin-top: 2rem;
     width: 50%;
 }
 

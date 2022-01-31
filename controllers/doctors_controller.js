@@ -1,6 +1,6 @@
 const res = require("express/lib/response");
 const Doctor = require("../models/doctor");
-const User = require("../models/user");
+
 
 module.exports.SignUp_doctor = function (req, res) {
 
@@ -32,13 +32,17 @@ module.exports.profile = function (req, res) {
     // {
     //     return res.redirect('/users/SignIn');
     // }
-
+    
+    // console.log(req.params.id);
+    // console.log(req.session.id);
     Doctor.findById(req.params.id, function (err, doctor) {
+        // console.log("khan mila yrr");
+        // console.log(doctor);
         return res.render('doctors_profile', {
             title: "doctor-profile",
-            // profile_doctor: doctor
+            profile_doctor: doctor
         })
-    })
+    });
 }
 
 // get the signUp data
@@ -73,41 +77,137 @@ module.exports.create = function (req, res) {
         }
     });
 }
+
+// signIn
 module.exports.createSession = function (req, res) {
     // req.flash('success','Logged in Successfully');
     return res.redirect('/');
 }
 
-// create the session for doctors
-// module.exports.createSession=function(req,res)
-// {   
-//     // check Doctor have an account or not
-//     Doctor.findOne({email:req.body.email},function(err,doctor){
-//         if(err)
-//         {
-//             console.log("Acccount Not found");
-//             return;
-//         }
-//         if(doctor){
-//             if(doctor.password!=req.body.password)
-//             {
-//                 return res.redirect('back');
-//             }
-//             res.cookie('doctor_id',doctor.id);
-//             return res.redirect('/doctors/profile');
-//         }
-//         else{
-//                 return res.redirect('back');
-//         }
-//     });
-// }
-
-
+// Signout
 module.exports.destroySession = function (req, res) {
     req.logout();
     console.log("logOut successFully")
     return res.redirect('/');
 }
+ 
+// finding the doctor
 
+// finding all doctors
+module.exports.find_doctor=async function(req,res){
+        
+   try {
+    let doctors=await Doctor.find({});
 
+    return res.render('find_doctor',{
+        title:"Medicare:Doctors",
+        doctors_list:doctors  
+    });
+  }
+ 
+    catch (error) {
+       console.log(error);
+   }
+    
+}
+
+// Using Name
+module.exports.find_doctorByName=function(req,res){
+
+    // console.log(req.body.name);
+    Doctor.find({name:req.body.name},function(err,doctors){
+        if(err)
+        {
+            console.log("Error in fetching doctors from db");
+            return;
+        }
+        return res.render('find_doctor',{
+            title:"Medicare:Doctors",
+            doctors_list:doctors  
+        });
+    })
+}
+
+// Using Location
+module.exports.find_doctorByLocation=function(req,res){
+
+    // console.log(req.body);
+    Doctor.find({locations:req.body.location},function(err,doctors){
+        if(err)
+        {
+            console.log("Error in fetching doctors from db");
+            return;
+        }
+        return res.render('find_doctor',{
+            title:"Medicare:Doctors",
+            doctors_list:doctors  
+        });
+    })
+    
+
+}
+// Using Location
+module.exports.find_doctorByService=function(req,res){
+
+    // console.log(req.body);
+    
+    Doctor.find({services:req.body.service},function(err,doctors){
+        if(err)
+        {
+            console.log("Error in fetching doctors from db");
+            return;
+        }
+        return res.render('find_doctor',{
+            title:"Medicare:Doctors",
+            doctors_list:doctors  
+        });
+    })
+}
+
+// search Bar
+module.exports.search=async function(req,res){
+        
+    const doctors=await Doctor.find({$text:{$search:req.query.docname}})
+    res.render('find_doctor',{
+            title:"Medicare:Doctors",
+            doctors_list:doctors 
+    })
+}
+
+// update the Info  doctor's profile
+
+module.exports.update=async function(req,res){
+    // console.log(req.user);
+    // console.log(req.body);
+    if(req.user.id==req.params.id)
+    {
+        try{
+            let doctor=await Doctor.findById(req.params.id);
+            // console.log(req.params.id);
+            console.log(req.body);
+            doctor.name=req.body.name;
+            doctor.email=req.body.email;
+            doctor.phone=req.body.phone;
+            doctor.locations=req.body.locations;
+        
+            doctor.services=req.body.services;
+            doctor.gender=req.body.gender;
+            doctor.experience=req.body.experience;
+            
+            doctor.save()
+            console.log(doctor);
+            return res.redirect('back');
+
+        }
+        catch(error)
+        {
+            console.log(error)
+            return res.redirect('back');
+        }
+    }
+    else{
+        console.log("Unathorised User");
+        return res.redirect('/');
+    }
+}
 

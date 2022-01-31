@@ -10,7 +10,7 @@ router.post('/createSession',passport.authenticate(
     'patient-local',
     {failureRedirect:'/users/SignIn'},
 ),PatientController.createSession);
-// router.post('/createSession',PatientController.createSession);
+
 router.get('/profile/:id',passport.checkAuthentication,PatientController.profile);
 router.get('/sign-out',PatientController.destroySession);
 module.exports=router;

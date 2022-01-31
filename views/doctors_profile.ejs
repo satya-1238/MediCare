@@ -1,6 +1,36 @@
 <link rel="stylesheet" href="/css/profile_doctor.css">
 <div class="outer">
-    <h1>I'm Doctor!</h1>
-    <h2>Name:<%=doctor.name%></h2>
-    <h2>Email:<%=doctor.email%></h2>
+    
+    <div class="current">
+        <p><%= profile_doctor.name %> </p>
+        <p><%= profile_doctor.email %></p>
+        <p>Gender:<%= profile_doctor.gender %></p>
+        <p>Phone:<%= profile_doctor.phone %></p>
+        <p>Locations:<%= profile_doctor.locations %></p>
+        <p>Services:<%= profile_doctor.services %></p>
+        <p>Experience:<%= profile_doctor.experience %></p>
+        
+        
+      </div>
+    <%if(doctor.id==profile_doctor.id)
+    {%>     
+            <div class="update">
+            <p>Update Information</p>
+            <form action="/doctors/update/<%= profile_doctor.id %>"  method="POST" >
+                <input type="text" name="name" placeholder="Name"  value="<%=profile_doctor.name%>" required> 
+                <input type="email" name="email" placeholder="Email" value="<%=profile_doctor.email%>" required>
+                <input type="tel" name="phone" placeholder="Phone"  value="<%=profile_doctor.phone%>">
+                <input type="text" name="gender" placeholder="Gender" value="<%=profile_doctor.gender%>" >
+                <input type="text" name="locations" placeholder="locations" value="<%=profile_doctor.locations%>">
+                <input type="text" name="services" placeholder="Services" value="<%=profile_doctor.services%>" >
+                <!-- <label for=""></label> -->
+                <textarea name="experience" cols="30" rows="3" placeholder="Experience..."  > <%=profile_doctor.experience%></textarea>
+                <!-- <input type="file" name="avatar" placeholder="Profile Picture"> -->
+                <input class="sub" type="submit"  value="Update">
+            </form>
+        </div>   
+    <%}%>
+     
+       
+    
 </div>

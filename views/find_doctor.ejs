@@ -25,7 +25,12 @@
                                  <li class="same"><p>Services</p></li>
                                  <li class="same"><p>Locations</p></li>
                                  <!-- <li class="same"><p>Languages</p></li> -->
-                                 <li class="appointment"><a href="">GET AN APPOINTMENT</a></li>
+                                 <%if(locals.patient)
+                                 {%>
+                                    <li class="appointment"><a href="/appointments/do/<%=d.id%>">GET AN APPOINTMENT</a></li>
+
+                                 <%}%>
+                                 
                                  <li class="appointment"><a href="/doctors/profile/<%=d.id%>">VIEW PROFILE</a></li>
                              </ul>
                              

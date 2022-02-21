@@ -1,0 +1,53 @@
+
+<link rel="stylesheet" href="/css/doctors_appointment.css">
+<div class="outer">
+    <h1>total appointments</h1>
+    <%if(appointment_doctor.appointments.length==0)
+    {%>
+       <h1>!you have no any appointments </h1>
+    <%}
+    else
+    {%>
+       <h1><%=appointment_doctor.appointments.length%></h1>
+
+       <div class="inner">
+          <table>
+             <tr>
+                <th>Patient</th>
+               
+                <th>date</th>
+                <th>symptoms</th>
+                <th>mode</th>
+                <th>id</th>
+                <th></th>
+             </tr>
+             
+             <%for( a of appointment_doctor.appointments)
+         {%>
+              <!-- <p><%=a%></p> -->
+            
+               <tr>
+
+               <td><p><%=a.patient.name%></p></td>
+               <td><p><%=a.date%></p></td>
+               <td><p><%=a.symptoms%></p></td>
+               <td><p><%=a.mode%></p></td>
+               <td><p><%=a.id%></p></td>
+               <td><button ><a href="/appointments/cancel/<%=a.id%>">cancel</a></button></td>
+               
+               
+               
+               
+               
+               
+            </tr>
+         
+             
+         <%}%>
+       </div>
+             
+          </table>
+         
+       
+    <%}%>
+</div>

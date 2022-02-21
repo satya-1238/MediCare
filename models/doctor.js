@@ -17,6 +17,10 @@ const doctorSchema=new mongoose.Schema({
     services:{
         type:String
     },
+    appointments:[{
+        type:mongoose.Schema.Types.ObjectId,
+        ref:'Appointment'
+    }],
     locations:{
         type:String
     },
@@ -32,12 +36,17 @@ const doctorSchema=new mongoose.Schema({
     user_type:{
         type:String,
         required:true
-   }
+   },
+   loc: {
+    type: { type: String },
+    coordinates: [Number],
+}
 },{
     timestamps:true
 
 });
 
+doctorSchema.index({ loc: '2dsphere' });
 // doctorSchema.index(
 //     {
 //         // name:"text",

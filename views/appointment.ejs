@@ -1,0 +1,22 @@
+<link rel="stylesheet" href="/css/appointment.css">
+<div class="outer">
+    <h1><%=patient.name%></h1>
+    <h1><%=appointment_doctor.name%></h1>
+    <div class="form-div">
+        <form action="/appointments/create" method="post">
+            <input type="hidden" name="doctor" value="<%=appointment_doctor.id%>">
+            <input type="hidden" name="patient" value="<%=patient.id%>">
+            <input type="radio" name="mode" id="offline" value="offline" required>
+            <label for="offline">Offline</label>
+            <br>
+            <input type="radio" name="mode" id="online" value="online" required>
+            <label for="online">Online</label>
+            <br>
+            <input type="text" name="symptoms" id="symptoms" placeholder="Symptoms">
+            <br>
+            <input type="date" name="date" id="date" required>
+            <input type="submit" value="book appointment">
+
+        </form>
+            </div>
+</div>

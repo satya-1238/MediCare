@@ -36,7 +36,7 @@ module.exports.profile = function (req, res) {
     // console.log(req.params.id);
     // console.log(req.session.id);
     Doctor.findById(req.params.id, function (err, doctor) {
-        // console.log("khan mila yrr");
+        
         // console.log(doctor);
         return res.render('doctors_profile', {
             title: "doctor-profile",
@@ -64,12 +64,6 @@ module.exports.create = function (req, res) {
                     console.log('error in creating while signing up');
                     return;
                 }
-                User.create(req.body, function (err, user) {
-                    if (err) {
-                        console.log("error in save user_type");
-                        return;
-                    }
-                });
                 return res.redirect('/Users/SignIn');
             });
         } else {
@@ -183,8 +177,6 @@ module.exports.update=async function(req,res){
     {
         try{
             let doctor=await Doctor.findById(req.params.id);
-            // console.log(req.params.id);
-            console.log(req.body);
             doctor.name=req.body.name;
             doctor.email=req.body.email;
             doctor.phone=req.body.phone;
@@ -193,9 +185,8 @@ module.exports.update=async function(req,res){
             doctor.services=req.body.services;
             doctor.gender=req.body.gender;
             doctor.experience=req.body.experience;
-            
             doctor.save()
-            console.log(doctor);
+            // console.log(doctor);
             return res.redirect('back');
 
         }

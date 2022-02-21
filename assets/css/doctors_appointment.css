@@ -1,0 +1,46 @@
+.outer{
+    
+    margin-top:10rem;
+    height: 100vh;
+    padding: 2rem;
+   
+    /* background-color: yellow; */
+}
+
+.inner{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    margin: 1rem;
+    margin-top: 10%;
+   
+}
+table{
+    border:2px solid black;
+    border-collapse: collapse;
+    
+    padding: 5px;
+}
+ th{
+    border: 2px solid black;
+    
+    padding: 5px;
+    /* border-collapse: collapse; */
+}
+td{
+    
+   align-items: center;
+    border-left: 2px solid black;
+    border-right: 2px solid black;
+    padding: 5px;
+    /* border-collapse: collapse; */
+} 
+h1{
+    
+    
+    text-align: center;
+}
+p{
+    text-align: center;
+}
+

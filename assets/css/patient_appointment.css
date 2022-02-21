@@ -1,0 +1,17 @@
+.outer{
+    margin-top:10rem;
+    height: 100vh;
+    /* background-color: yellow; */
+}
+
+.inner{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    /* align-items: center; */
+}
+
+.detail{
+     display: flex;
+     justify-content: space-around;
+}

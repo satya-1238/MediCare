@@ -46,14 +46,6 @@ module.exports.create=function(req,res)
                     console.log('error in creating while signing up');
                     return;
                 }
-                
-                User.create(req.body,function(err,user){
-                    if(err)
-                    {
-                        console.log("error in save user_type");
-                        return;
-                    }
-              });
                 return res.redirect('/Users/SignIn');
             });
         }else{

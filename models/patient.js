@@ -15,6 +15,10 @@ const patientSchema=new mongoose.Schema(
         type:String,
         required:true
     },
+    appointments:[{
+        type:mongoose.Schema.Types.ObjectId,
+        ref:'Appointment'
+    }],
     user_type:{
          type:String,
          required:true

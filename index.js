@@ -27,6 +27,8 @@ app.use(cookieParser());
 app.use(express.static('./assets'));
 
 
+// avalaible uploads path to browser
+app.use('/uploads',express.static(__dirname+'/uploads'));
 // for using layouts
 app.use(expressLayouts);
 // extract style and scripts from subpages into the layout

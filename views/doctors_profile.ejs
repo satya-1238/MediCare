@@ -3,6 +3,7 @@
 
 <div class="outer">
     <div class="current">
+        <img src="<%=profile_doctor.avatar%>" alt="No profile_pic" width="100">
         <p><%= profile_doctor.name %> </p>
         <p><%= profile_doctor.email %></p>
         <p>Gender:<%= profile_doctor.gender %></p>
@@ -19,7 +20,8 @@
     {%>     
             <div class="update">
             <p>Update Information</p>
-            <form action="/doctors/update/<%= profile_doctor.id %>"  method="POST" >
+            <form action="/doctors/update/<%= profile_doctor.id %>"  method="POST" enctype="multipart/form-data">
+                <input type="file" name="avatar" id="" placeholder="Profile Picture">
                 <input type="text" name="name" placeholder="Name"  value="<%=profile_doctor.name%>" required> 
                 <input type="email" name="email" placeholder="Email" value="<%=profile_doctor.email%>" required>
                 <input type="tel" name="phone" placeholder="Phone"  value="<%=profile_doctor.phone%>">

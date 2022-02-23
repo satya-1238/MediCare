@@ -1,6 +1,8 @@
 const res = require("express/lib/response");
 const Doctor = require("../models/doctor");
-
+// required fs and path for removing existing avatar
+const fs=require('fs');
+const path=require('path');
 
 module.exports.SignUp_doctor = function (req, res) {
 
@@ -175,9 +177,17 @@ module.exports.update=async function(req,res){
     // console.log(req.body);
     if(req.user.id==req.params.id)
     {
+
         try{
             let doctor=await Doctor.findById(req.params.id);
-            doctor.name=req.body.name;
+            Doctor.uploadedAvatar(req,res,function(err)
+            {
+                  if(err)
+                  {
+                      console.log("error in multer",err);
+                    
+                  }
+                  doctor.name=req.body.name;
             doctor.email=req.body.email;
             doctor.phone=req.body.phone;
             doctor.locations=req.body.locations;
@@ -185,7 +195,20 @@ module.exports.update=async function(req,res){
             doctor.services=req.body.services;
             doctor.gender=req.body.gender;
             doctor.experience=req.body.experience;
+            if(req.file)
+            {
+                // if(doctor.avatar)
+                // {
+                //     fs.unlinkSync(path.join(__dirname,'..',doctor.avatar));
+                // }
+                //saving the uploaded file into the db doctor; 
+                doctor.avatar=Doctor.avatarPath+'/'+req.file.filename;
+            }
             doctor.save()
+
+                //   console.log(req.file);
+
+            });
             // console.log(doctor);
             return res.redirect('back');
 

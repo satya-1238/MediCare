@@ -10,17 +10,17 @@
     {%>
        <h1><%=appointment_patient.appointments.length%></h1>
 
-       <div class="inner">
+       <div class="inner" id="appointment-list">
          <%for( a of appointment_patient.appointments)
          {%>
               <!-- <p><%=a%></p> -->
-              <div class="detail">
+              <div class="detail" id="appointment-<%=a._id%>">
                <p><%=a.doctor.name%></p>
                <p><%=a.date%></p>
                <p><%=a.mode%></p>
                <p><%=a.symptoms%></p>
                <p><%=a.id%></p>
-               <button ><a href="/appointments/cancel/<%=a.id%>">cancel</a></button>
+               <button ><a class="delete-appointment-button" href="/appointments/cancel/<%=a.id%>">cancel</a></button>
               </div>
              
          <%}%>
@@ -28,3 +28,4 @@
        
     <%}%>
 </div>
+<!-- <script src="/js/appointment.js"></script> -->

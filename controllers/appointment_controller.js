@@ -15,6 +15,8 @@ module.exports.create=async function(req,res){
            symptoms:req.body.symptoms,
            date:req.body.date
        })
+
+    
        Doctor.findById(req.body.doctor,function(err,doctor)
        {
             //  console.log(doctor);

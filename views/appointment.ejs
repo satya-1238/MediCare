@@ -3,7 +3,7 @@
     <h1><%=patient.name%></h1>
     <h1><%=appointment_doctor.name%></h1>
     <div class="form-div">
-        <form action="/appointments/create" method="post">
+        <form action="/appointments/create" method="post" id="book-appointment">
             <input type="hidden" name="doctor" value="<%=appointment_doctor.id%>">
             <input type="hidden" name="patient" value="<%=patient.id%>">
             <input type="radio" name="mode" id="offline" value="offline" required>
@@ -20,3 +20,4 @@
         </form>
             </div>
 </div>
+<!-- <script src="/js/appointment.js"></script> -->

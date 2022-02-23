@@ -50,7 +50,7 @@ const doctorSchema=new mongoose.Schema({
 
     
 
- const Doctor=mongoose.model('Doctor',doctorSchema);
+ 
 let storage = multer.diskStorage({
     destination: function (req, file, cb) {
         // console.log(req.params.id);

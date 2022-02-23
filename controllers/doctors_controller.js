@@ -17,24 +17,6 @@ module.exports.SignUp_doctor = function (req, res) {
 // Access the profile specific to doctor
 module.exports.profile = function (req, res) {
 
-    // if(req.cookies.doctor_id){
-    //     Doctor.findById(req.cookies.doctor_id,function(err,doctor){
-    //         if(doctor)
-    //         {
-    //             return res.render('doctors_profile',{
-    //                 title:"doctor-profile",
-    //                 doctor:doctor,
-    //             })
-    //         }
-    //         else{
-    //             return res.redirect('/users/SignIn');
-    //         }
-    //     });
-    // }else
-    // {
-    //     return res.redirect('/users/SignIn');
-    // }
-    
     // console.log(req.params.id);
     // console.log(req.session.id);
     Doctor.findById(req.params.id, function (err, doctor) {

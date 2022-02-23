@@ -54,5 +54,5 @@ doctorSchema.index({ loc: '2dsphere' });
 //     }
     
 //     );
-const Doctor=mongoose.model('Doctor',doctorSchema);
+ const Doctor=mongoose.model('Doctor',doctorSchema);
 module.exports=Doctor;

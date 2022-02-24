@@ -23,4 +23,10 @@ router.post('/find_doctorByName',DoctorController.find_doctorByName);
 router.post('/find_doctorByLocation',DoctorController.find_doctorByLocation);
 router.post('/find_doctorByService',DoctorController.find_doctorByService);
 
+// signin with google
+router.get('/auth/google',passport.authenticate('doctor-google',{scope:['profile','email']
+}));
+router.get('/auth/google/callback',passport.authenticate('doctor-google',
+{failureRedirect:'/users/signIn'}),DoctorController.createSession);
+
 module.exports=router

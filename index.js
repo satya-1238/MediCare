@@ -18,7 +18,7 @@ const session =require('express-session');
 const passport=require('passport');
 const passportLocal=require('./config/passport-local-strategy');
 const passportJwt=require('./config/passport-jwt-strategy');
-
+const passportGoogle=require('./config/passport-google-oauth2-strategy');
 const MongoStore= require('connect-mongo') ;//(session);
 // for reading and writing cookies
 app.use(express.urlencoded());

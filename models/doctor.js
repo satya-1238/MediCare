@@ -37,6 +37,7 @@ const doctorSchema=new mongoose.Schema({
     },
     user_type:{
         type:String,
+        default:'doctor',
         required:true
    },
    avatar:{

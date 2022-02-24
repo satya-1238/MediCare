@@ -21,6 +21,7 @@ const patientSchema=new mongoose.Schema(
     }],
     user_type:{
          type:String,
+         default:'patient',
          required:true
     }
 }, {

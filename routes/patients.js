@@ -11,6 +11,16 @@ router.post('/createSession',passport.authenticate(
     {failureRedirect:'/users/SignIn'},
 ),PatientController.createSession);
 
+// sigin/Signup with google
+router.get('/auth/google',passport.authenticate
+(
+    'patient-google',{scope:['profile','email']}
+));
+router.get('/auth/google/callback',passport.authenticate
+(   'patient-google',
+    {failureRedirect:'/users/signIn'}),
+    PatientController.createSession
+);
 router.get('/profile/:id',passport.checkAuthentication,PatientController.profile);
 router.get('/sign-out',PatientController.destroySession);
 module.exports=router;

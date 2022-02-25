@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Appointment Booked</title>
+    <style>
+    .inner{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        margin: 1rem;
+        margin-top: 10%;
+       
+    }
+    table{
+        border:2px solid black;
+        border-collapse: collapse;
+        
+        padding: 5px;
+    }
+     th{
+        border: 2px solid black;
+        
+        padding: 5px;
+        /* border-collapse: collapse; */
+    }
+    td{
+        
+       align-items: center;
+        border-left: 2px solid black;
+        border-right: 2px solid black;
+        padding: 5px;
+        /* border-collapse: collapse; */
+    } 
+    
+    </style>
+</head>
+<body>
+    <div>
+        <p>Hi <strong><%=patient.name%></strong>!</p>
+        <br>
+        
+        <p>your <strong>Appointment</strong>  booked Successfully!</p>
+        <div class="inner">
+           <table>
+              <tr>
+                 <th>doctor</th>
+                 <th>date</th>
+                 <th>symptoms</th>
+                 <th>mode</th>
+    
+              </tr>
+              <tr>
+                <td><p><%=doctor.name%></p></td>
+                <td><p><%=appointment.date%></p></td>
+                <td><p><%=appointment.symptoms%></p></td>
+                <td><p><%=appointment.mode%></p></td>
+             </tr>
+           </table>
+    </div> 
+    <p>Thanks!</p>
+</body>
+</html>
+ 

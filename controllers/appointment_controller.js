@@ -2,6 +2,7 @@ const req = require('express/lib/request');
 const Appointment=require('../models/appointment');
 const Doctor=require('../models/doctor');
 const Patient=require('../models/patient');
+const appointmentsMailer=require('../mailers/appointments_mailer');
 
 
 module.exports.create=async function(req,res){
@@ -28,6 +29,9 @@ module.exports.create=async function(req,res){
         
            patient.appointments.push(appointment);
            patient.save();
+          appointmentsMailer.newAppointment(appointment,doctor,patient);
+          
+
     //    console.log(doctor);
     //    console.log(patient);
        return res.render('your_appointment',{

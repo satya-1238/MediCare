@@ -5,9 +5,9 @@ const Doctor=require('../models/doctor');
 const Patient=require('../models/patient');
 
 passport.use('doctor-google',new googleStrategy({
-    clientID:"dakfmnffpaabe",
-    clientSecret:"UWKEJPOLSD085",
-    callbackURL:"/abd/find",
+    clientID:"919972804145-nmnnt1b6jqbbjhmfc29nl1eshe98u7fa.apps.googleusercontent.com",
+    clientSecret:"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",
+    callbackURL:"http://localhost:8000/doctors/auth/google/callback",
 
     },
     function(accessToken,refreshToken,profile,done){
@@ -21,7 +21,7 @@ passport.use('doctor-google',new googleStrategy({
                 console.log('error in google strategy-passport',err);
                 return;
             }
-            console.log(accessToken,refreshToken);
+            // console.log(accessToken,refreshToken);
            
             if(doctor)
             {
@@ -46,9 +46,9 @@ passport.use('doctor-google',new googleStrategy({
 
 ));
 passport.use('patient-google',new googleStrategy({
-    clientID:"dakfmnffpaabe",
-    clientSecret:"UWKEJPOLSD085",
-    callbackURL:"/abd/find",
+    clientID:"919972804145-nmnnt1b6jqbbjhmfc29nl1eshe98u7fa.apps.googleusercontent.com",
+    clientSecret:"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",
+    callbackURL:"http://localhost:8000/patients/auth/google/callback"
 
     },
     function(accessToken,refreshToken,profile,done){
@@ -62,9 +62,9 @@ passport.use('patient-google',new googleStrategy({
                 console.log('error in google strategy-passport',err);
                 return;
             }
-            console.log(accessToken,refreshToken);
-            console.log("profile\n:");
-            console.log(profile);
+            // console.log(accessToken,refreshToken);
+            // console.log("profile\n:");
+            // console.log(profile);
             if(patient)
             {
                 // if founnd set this as req.user

@@ -39,7 +39,7 @@
 </head>
 <body>
     <div>
-        <p>Hi <strong><%=patient.name%></strong>!</p>
+        <p>Hi <strong><%=appointment.patient.name%></strong>!</p>
         <br>
         
         <p>your <strong>Appointment</strong>  booked Successfully!</p>
@@ -53,7 +53,7 @@
     
               </tr>
               <tr>
-                <td><p><%=doctor.name%></p></td>
+                <td><p><%=appointment.doctor.name%></p></td>
                 <td><p><%=appointment.date%></p></td>
                 <td><p><%=appointment.symptoms%></p></td>
                 <td><p><%=appointment.mode%></p></td>

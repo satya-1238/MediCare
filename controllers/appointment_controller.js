@@ -3,13 +3,15 @@ const Appointment=require('../models/appointment');
 const Doctor=require('../models/doctor');
 const Patient=require('../models/patient');
 const appointmentsMailer=require('../mailers/appointments_mailer');
+const appointmentsWorker=require('../workers/appointment_worker');
+const queue=require('../config/kue');
 
 
-module.exports.create=async function(req,res){
+module.exports.create= async function(req,res){
     //    console.log(req.body);
     //    console.log(typeof(req.body.date));
        
-       let appointment= await Appointment.create({
+       let appointment=  await Appointment.create({
            doctor:req.body.doctor,
            patient:req.body.patient,
            mode:req.body.mode,
@@ -24,13 +26,34 @@ module.exports.create=async function(req,res){
              doctor.appointments.push(appointment);
              doctor.save();
        
-       Patient.findById(req.body.patient,function(err,patient)
+       Patient.findById(req.body.patient,async function(err,patient)
        {
         
            patient.appointments.push(appointment);
            patient.save();
-          appointmentsMailer.newAppointment(appointment,doctor,patient);
-          
+
+        //    console.log(appointment);
+        //    console.log(appointment.id);
+           let appointment1 = await Appointment.findById(appointment.id)
+           .populate({path:'doctor',select:'name email'})
+           .populate({path:'patient',select:'name email'})
+           .exec();
+
+        //    console.log(appointment1);
+           
+           
+            
+
+        //   appointmentsMailer.newAppointment(appointment1);
+          let job=queue.create('emails',appointment1).save(function(err)
+          {
+              if(err)
+              {
+                  Console.log('error in enqueuing queue',err);
+              }
+              console.log("job enqueued : ",job.id)
+
+          })
 
     //    console.log(doctor);
     //    console.log(patient);

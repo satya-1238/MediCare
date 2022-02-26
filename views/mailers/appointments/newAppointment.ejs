@@ -39,7 +39,7 @@
 </head>
 <body>
     <div>
-        <p>Hi <strong><%=doctor.name%></strong>!</p>
+        <p>Hi <strong><%=appointment.doctor.name%></strong>!</p>
         <br>
         
         <p>An <strong>Appointment</strong> is booked for you On  Medicare!</p>
@@ -52,7 +52,7 @@
                  <th>mode</th>
               </tr>
               <tr>
-                <td><p><%=patient.name%></p></td>
+                <td><p><%=appointment.patient.name%></p></td>
                 <td><p><%=appointment.date%></p></td>
                 <td><p><%=appointment.symptoms%></p></td>
                 <td><p><%=appointment.mode%></p></td>

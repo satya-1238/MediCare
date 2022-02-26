@@ -1,12 +1,12 @@
 const nodeMailer=require('../config/nodemailer');
 
-module.exports.newAppointment=function(appointment,doctor,patient)
+module.exports.newAppointment=function(appointment)
 {
-    
-    let htmlString = nodeMailer.renderTemplate({appointment:appointment,doctor:doctor,patient:patient},'/appointments/newAppointment.ejs');
+    // console.log(appointment);
+    let htmlString = nodeMailer.renderTemplate({appointment:appointment},'/appointments/newAppointment.ejs');
     nodeMailer.transporter.sendMail({
         from:'medicarehospitals0581@gmail.com',
-        to:doctor.email,
+        to:appointment.doctor.email,
         subject:"new appointment booked",
         html:htmlString
     },(err,info)=>
@@ -16,13 +16,13 @@ module.exports.newAppointment=function(appointment,doctor,patient)
              console.log('error in sending mails',err);
              return;
          }
-         console.log('email sent to doctor successfully');
+        //  console.log('email sent to doctor successfully');
          return;
     })
-    let htmlString1 = nodeMailer.renderTemplate({appointment:appointment,doctor:doctor,patient:patient},'/appointments/mailtopatient.ejs');
+    let htmlString1 = nodeMailer.renderTemplate({appointment:appointment},'/appointments/mailtopatient.ejs');
     nodeMailer.transporter.sendMail({
         from:'medicarehospitals0581@gmail.com',
-        to:patient.email,
+        to:appointment.patient.email,
         subject:"Your appointment booked successfully",
         html:htmlString1
     },(err,info)=>
@@ -32,7 +32,7 @@ module.exports.newAppointment=function(appointment,doctor,patient)
              console.log('error in sending mails',err);
              return;
          }
-         console.log('email sent to patient successfully');
+        //  console.log('email sent to patient successfully');
          return;
     })
 }

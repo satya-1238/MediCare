@@ -1,0 +1,49 @@
+<link rel="stylesheet" href="/css/DocPatChat.css">
+<div class="outer">
+    <div class="info">
+       
+        <%if(locals.patient)
+        {%> 
+            <div class="user">
+                <img src="<%=appointmented_doctor.avatar%>" alt="No profile_pic" width="100">
+                <p><%=appointmented_doctor.name%></p>
+            </div>
+            <div class="user">
+                <!-- <img src="<%=appointmented_doctor.avatar%>" alt="No profile_pic" width="100"> -->
+                    <p><%=patient.name%></p>
+               </div>
+        <%}%>
+        <%if(locals.doctor)
+        {%> 
+            <div class="user">
+                
+                <p><%=appointmented_patient.name%></p>
+            </div>
+            <div class="user">
+                    <h2>Doctor</h2>
+                    <img src="<%=doctor.avatar%>" alt="No profile_pic" width="100">
+                    <p><%=doctor.name%></p>
+               </div>
+
+        <%}%>
+        
+       
+    </div>
+    <div class="chat">
+         <%-include('_chat')-%>
+    </div>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.4.1/socket.io.js" integrity="sha512-MgkNs0gNdrnOM7k+0L+wgiRc5aLgl74sJQKbIWegVIMvVGPc1+gc1L2oK9Wf/D9pq58eqIJAxOonYPVE5UwUFA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="/js/chat.js"></script>
+<%if(locals.doctor)
+{%>
+    <script>
+            new Chat('chat-box','<%=locals.doctor.email%>')    
+    </script>
+<%}%>
+<%if(locals.patient)
+{%>
+    <script>
+            new Chat('chat-box','<%=locals.patient.email%>')    
+    </script>
+<%}%>

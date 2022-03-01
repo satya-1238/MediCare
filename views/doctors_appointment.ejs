@@ -18,7 +18,8 @@
                 <th>date</th>
                 <th>symptoms</th>
                 <th>mode</th>
-                <th>id</th>
+                <th>chat</th>
+                <th>view</th>
                 <th></th>
              </tr>
              
@@ -32,6 +33,8 @@
                <td><p><%=a.date%></p></td>
                <td><p><%=a.symptoms%></p></td>
                <td><p><%=a.mode%></p></td>
+               <td><button class="btn" ><a clss="link-appoint" href="/consultations/consultDoctor/<%=a.patient.id%>"><img src="/images/icons8-chat-48.png" alt="can't open"></a></button></td>
+               <td><button class="+btn"><a  clss="link-appoint"href="/doctors/profile/<%=a.doctor.id%>"><img src="/images/view.png" alt="can't open"></a></button></td>
                
                <td><button ><a href="/appointments/cancel/<%=a.id%>">cancel</a></button></td>
                

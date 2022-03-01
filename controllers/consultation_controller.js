@@ -16,7 +16,7 @@ module.exports.consultPatient=async function(req,res)
                console.log('error',err);
                return;
           }
-          console.log(doctor);
+          // console.log(doctor);
           return res.render('DocPatChat',{
                title:'chat with doctor',
                appointmented_doctor:doctor,

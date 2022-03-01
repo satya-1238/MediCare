@@ -1,5 +1,5 @@
 
-<link rel="stylesheet" href="/css/patient_appointment.css">
+<link rel="stylesheet" href="/css/doctors_appointment.css">
 <div class="outer">
     <h1>total appointments</h1>
     <%if(appointment_patient.appointments.length==0)
@@ -10,22 +10,49 @@
     {%>
        <h1><%=appointment_patient.appointments.length%></h1>
 
-       <div class="inner" id="appointment-list">
-         <%for( a of appointment_patient.appointments)
+       <div class="inner">
+          <table>
+             <tr>
+                <th>Doctor</th>
+               
+                <th>date</th>
+                <th>symptoms</th>
+                <th>mode</th>
+                <th>chat</th>
+                <th>view</th>
+                <th></th>
+             </tr>
+             
+             <%for( a of appointment_patient.appointments)
          {%>
               <!-- <p><%=a%></p> -->
-              <div class="detail" id="appointment-<%=a._id%>">
-               <p><%=a.doctor.name%></p>
-               <p><%=a.date%></p>
-               <p><%=a.mode%></p>
-               <p><%=a.symptoms%></p>
+            
+               <tr>
+
+               <td><p><%=a.doctor.name%></p></td>
+               <td><p><%=a.date%></p></td>
+               <td><p><%=a.symptoms%></p></td>
+               <td><p><%=a.mode%></p></td>
+               <td><button class="btn" ><a clss="link-appoint" href="/consultations/consultPatient/<%=a.doctor.id%>"><img src="/images/icons8-chat-48.png" alt="can't open"></a></button></td>
+               <td><button class="btn"><a  clss="link-appoint"href="/doctors/profile/<%=a.doctor.id%>"><img src="/images/view.png" alt="can't open"></a></button></td>
                
-               <button ><a class="delete-appointment-button" href="/appointments/cancel/<%=a.id%>">cancel</a></button>
-              </div>
+               
+               <td><button ><a href="/appointments/cancel/<%=a.id%>">cancel</a></button></td>
+               
+               
+               
+               
+               
+               
+            </tr>
+         
              
          <%}%>
        </div>
+             
+          </table>
+         
        
     <%}%>
 </div>
-<!-- <script src="/js/appointment.js"></script> -->
+

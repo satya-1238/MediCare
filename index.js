@@ -20,6 +20,14 @@ const passportLocal=require('./config/passport-local-strategy');
 const passportJwt=require('./config/passport-jwt-strategy');
 const passportGoogle=require('./config/passport-google-oauth2-strategy');
 const MongoStore= require('connect-mongo') ;//(session);
+
+// setup the chat server to be used with socket.io
+const chatServer = require('http').Server(app);
+const chatSockets = require('./config/chat_sockets').chatSockets(chatServer);
+chatServer.listen(5000);
+console.log('chat server is listening on port 5000');
+const path = require('path');
+
 // for reading and writing cookies
 app.use(express.urlencoded());
 // set up the cookie parser

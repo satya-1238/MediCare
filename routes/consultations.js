@@ -4,7 +4,6 @@ const passport=require('passport');
 const DoctorController=require('../controllers/doctors_controller');
 const ConsultController=require('../controllers/consultation_controller');
 
-// router.get('/',ConsultController.c);
 router.get('/consultPatient/:Doctorid',ConsultController.consultPatient);
 router.get('/consultDoctor/:Patientid',ConsultController.consultDoctor);
 

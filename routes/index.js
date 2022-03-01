@@ -14,6 +14,7 @@ router.use('/doctors',require('./doctors'));
 router.use('/patients',require('./patients'));
 router.use('/appointments',require('./appointments'));
 router.use('/api',require('./api'));
+router.use('/consultations',require('./consultations'));
 
 
 

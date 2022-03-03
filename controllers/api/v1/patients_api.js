@@ -1,5 +1,6 @@
 const Patient=require('../../../models/patient');
 const jwt=require('jsonwebtoken');
+const env=require('../../../config/environment');
 
 // Sign In and create the session for User
 module.exports.createSession=async function(req,res){
@@ -19,7 +20,7 @@ module.exports.createSession=async function(req,res){
             return res.json(200,{
                 message:"Sign in Successfully",
                 data:{
-                    token:jwt.sign(patient.toJSON(),'MediCare',{expiresIn:'100000000000000'})
+                    token:jwt.sign(patient.toJSON(),env.jwt_secret,{expiresIn:'100000000000000'})
     
                 }
             })

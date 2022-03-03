@@ -1,0 +1,52 @@
+#body-header{
+    width: 100%;
+    position: fixed;
+    top:0;
+}
+.nav-menu{
+    
+    margin: 0px;
+    display: flex;
+    height:5rem;
+    justify-content:space-around;
+    background-color:black;
+    flex-wrap:wrap;
+    align-items: center;
+    /* border-radius:0.5rem; */
+}
+.nav-items{
+    list-style: none;
+    text-align: center;
+}
+.nav-items a{
+    text-decoration: none;
+    font-size: 2rem;
+    font-weight: 500;
+    color: white;
+    font-family:  'Ubuntu', sans-serif;
+
+}
+#logo{
+  height:4rem;
+  margin: -28px;
+  /* border: 2px solid red; */
+}
+#login{
+    padding: 3px;
+    padding-left: 15px;
+    padding-right: 15px;
+    /* margin: 5px; */
+    border-radius:0.5rem;
+    border:2px solid white;
+}
+.nav-items a:hover{
+    color:lightskyblue;
+    border-bottom: 1px solid yellow;
+    transition:color 0.5s,border-bottom 4s ;
+}
+#login:hover{
+    background-color: rgb(124, 141, 138);
+    box-shadow:  2px 0px white;
+}
+
+

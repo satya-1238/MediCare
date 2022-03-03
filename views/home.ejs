@@ -1,9 +1,7 @@
-<link rel="stylesheet" href="./css/home.css">
-
+<link rel="stylesheet" href="<%= assetPath('css/home.css') %>">
 <body>
     <div id="home-container"> 
             
-        
         
         <div id="find-doctor">
            
@@ -20,7 +18,8 @@
             <div class="find-type" id="find-type">
                 <div class="find-div" id="loc">
                     <div>
-                        <img class="find-img" src="images/locations.png" alt="can't open">
+                
+                        <img class="find-img" src="<%= assetPath('images/locations.png') %>" alt="can't open">
                         <span>By Location</span>
                     </div>
                     <form action="/doctors/find_doctorByLocation" method="post">
@@ -36,14 +35,16 @@
 
 
                         <button type="submit" class="go" id="loc-btn">
-                            <img src="/images/arrow-right.png" alt="">
+        
+                            <img src="<%= assetPath('images/arrow-right.png') %>" alt="">
                         </button>
 
                     </form>
                 </div>
                 <div class="find-div" id="service">
                     <div>
-                        <img class="find-img" src="/images/doctor-stethoscope.png" alt="can't open">
+                        <img class="find-img" src="<%= assetPath('images/doctor-stethoscope.png') %>" alt="can't open">
+                        
                         <span>By Service</span>
                     </div>
                     <form action="/doctors/find_doctorByService" method="post">
@@ -56,20 +57,20 @@
                             <option value="03">Heart-deseases</option>
                         </select>
                         <button type="submit" class="go">
-                            <img src="/images/arrow-right.png" alt="">
+                            <img src="<%= assetPath('images/arrow-right.png') %>" alt="">
                         </button>
                     </form>
                 </div>
                 <div class="find-div" id="name">
                     <div>
-                        <img class="find-img" src="/images/icons8-name-48.png" alt="can't open">
+                        <img class="find-img" src="<%= assetPath('images/icons8-name-48.png') %>" alt="can't open">
                         <span>By Name</span>
                     </div>
 
                     <form action="/doctors/find_doctorByName" method="post">
                         <input class="select-input text-input" type="text" name="name" id="doc-name"
                             placeholder="Enter Name Of Doctor">
-                        <button class="go"> <img src="/images/arrow-right.png" alt=""></button>
+                        <button class="go"> <img src="<%= assetPath('images/arrow-right.png') %>" alt=""></button>
                     </form>
                 </div>
             </div>

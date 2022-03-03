@@ -1,12 +1,12 @@
 const passport=require('passport');
 const JWTStrategy=require('passport-jwt').Strategy;
 const ExtractJWT=require('passport-jwt').ExtractJwt;
-
+const env=require('./environment');
 const Doctor=require('../models/doctor');
 const Patient=require('../models/patient');
 let opts={
     jwtFromRequest : ExtractJWT.fromAuthHeaderAsBearerToken(),
-     secretOrKey :'MediCare'
+     secretOrKey :env.jwt_secret
 }
 passport.use(new JWTStrategy(opts,function(jwtPayLoad,done)
 {

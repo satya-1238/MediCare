@@ -3,3 +3,4 @@ assets/images/
 uploads/doctors/avatars/
 config/passport-google-oauth2-strategy.js
 config/nodemailer.js
+config/environment.js

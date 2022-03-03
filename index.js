@@ -1,9 +1,12 @@
 
 // required 
 const express=require('express');
+const env=require('./config/environment')
+const logger=require('morgan');
 const cookieParser=require('cookie-parser');
 // fireUp express
 const app=express();
+require('./config/view-helpers')(app);
 // provide port to listen
 const port=8000;
 
@@ -33,11 +36,13 @@ app.use(express.urlencoded());
 // set up the cookie parser
 app.use(cookieParser());
 // setUp the static files
-app.use(express.static('./assets'));
+app.use(express.static(env.asset_path));
 
 
 // avalaible uploads path to browser
 app.use('/uploads',express.static(__dirname+'/uploads'));
+
+app.use(logger(env.morgan.mode,env.morgan.options));
 // for using layouts
 app.use(expressLayouts);
 // extract style and scripts from subpages into the layout
@@ -53,7 +58,7 @@ app.set('views','./views');
 app.use(session({
     name: 'medicare',
     // TODO change the secret before deployment in production mode
-    secret: 'blahsomething',
+    secret: env.session_cookie_key,
     saveUninitialized: false,
     resave: false,
     cookie: {

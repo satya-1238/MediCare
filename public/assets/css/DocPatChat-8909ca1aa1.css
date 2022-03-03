@@ -1,0 +1,38 @@
+
+
+.outer{
+    
+    margin-top:10rem;
+    height: 100vh;
+    /* padding: 2rem; */
+    /* background-color: yellow; */
+}
+.info{
+    display: flex;
+    justify-content:space-around;
+    align-items: center;
+    /* padding: 2rem; */
+
+   border-bottom: 2rem dashed black;
+    
+    /* background-color: blue; */
+}
+.user{
+    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    /* background-color: cyan; */
+}
+p{
+    font-weight: bolder;
+    font-size: 1.5rem;
+}
+.chat{
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    width: 100%;
+    height: 70%;
+}
+

@@ -1,5 +1,5 @@
 
-<link rel="stylesheet" href="<%= assetPath('css/doctors_appointment.css') %>">
+<link rel="stylesheet" href='/css/doctors_appointment.css'>
 <div class="outer">
     <h1>total appointments</h1>
     <%if(appointment_patient.appointments.length==0)
@@ -33,8 +33,8 @@
                <td><p><%=a.date%></p></td>
                <td><p><%=a.symptoms%></p></td>
                <td><p><%=a.mode%></p></td>
-               <td><button class="btn" ><a clss="link-appoint" href="/consultations/consultPatient/<%=a.doctor.id%>"><img src="<%=assetPath('images/icons8-chat-48.png')%>" alt="can't open"></a></button></td>
-               <td><button class="btn"><a  clss="link-appoint"href="/doctors/profile/<%=a.doctor.id%>"><img src="<%=assetPath('images/view.png')%>" alt="can't open"></a></button></td>
+               <td><button class="btn" ><a clss="link-appoint" href="/consultations/consultPatient/<%=a.doctor.id%>"><img src='/images/icons8-chat-48.png' alt="can't open"></a></button></td>
+               <td><button class="btn"><a  clss="link-appoint"href="/doctors/profile/<%=a.doctor.id%>"><img src='/images/view.png' alt="can't open"></a></button></td>
                
                
                <td><button ><a href="/appointments/cancel/<%=a.id%>">cancel</a></button></td>

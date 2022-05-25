@@ -11,12 +11,17 @@ module.exports.newAppointment=function(appointment)
         html:htmlString
     },(err,info)=>
     {
+        //  console.log(transporter.auth.user);
+        //  console.log(transporter.auth.pass);
          if(err)
          {
              console.log('error in sending mails',err);
              return;
          }
         //  console.log('email sent to doctor successfully');
+                 
+
+         
          return;
     })
     let htmlString1 = nodeMailer.renderTemplate({appointment:appointment},'/appointments/mailtopatient.ejs');
@@ -33,6 +38,7 @@ module.exports.newAppointment=function(appointment)
              return;
          }
         //  console.log('email sent to patient successfully');
+         
          return;
     })
 }

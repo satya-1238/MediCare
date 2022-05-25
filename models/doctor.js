@@ -48,9 +48,14 @@ const doctorSchema=new mongoose.Schema({
 
 });
 
-
+doctorSchema.index(
+    {
+        name:"text",
+        locations:"text",
+        services:"text",
+    }
     
-
+    );
  
 let storage = multer.diskStorage({
     destination: function (req, file, cb) {

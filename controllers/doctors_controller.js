@@ -144,8 +144,7 @@ module.exports.find_doctorByService=function(req,res){
 
 // search Bar
 module.exports.search=async function(req,res){
-        
-    const doctors=await Doctor.find({$text:{$search:req.query.docname}})
+    const doctors=await Doctor.find({$text:{$search:req.query.docname}});
     res.render('find_doctor',{
             title:"Medicare:Doctors",
             doctors_list:doctors 

@@ -2,7 +2,7 @@
 #home-container{
     margin-top:0px;
     /* padding: 0px; */
-    height:100vh;
+    min-height:100vh;
     width: 100vw;
     opacity:1.0;
     /* background-color: red; */
@@ -19,7 +19,6 @@
 
 #find-heading{
     font-family:  'Ubuntu', sans-serif;
-
     font-weight:bold;
     font-size: 2.5rem;
     color:rgb(67, 127, 196);
@@ -30,6 +29,7 @@
    /* background-color: cyan; */
    /* align-items: center; */
     margin-top:28rem;
+    margin-bottom: 12rem;
 }
 .find-div{
     display: inline-block;
@@ -40,6 +40,7 @@
     height:8rem;
     width:22rem;
     border-radius: 0.5rem;
+    margin-bottom: 1rem;
 }
 .find-type{
     padding-left: 20%;

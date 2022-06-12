@@ -1,5 +1,6 @@
 node_modules/
 assets/images/
+public/uploads/
 uploads/doctors/avatars/
 config/passport-google-oauth2-strategy.js
 config/nodemailer.js

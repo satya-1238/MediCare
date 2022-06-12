@@ -22,5 +22,6 @@ router.get('/auth/google/callback',passport.authenticate
     PatientController.createSession
 );
 router.get('/profile/:id',passport.checkAuthentication,PatientController.profile);
+router.post('/update/:id',passport.checkAuthentication,PatientController.update);
 router.get('/sign-out',PatientController.destroySession);
 module.exports=router;

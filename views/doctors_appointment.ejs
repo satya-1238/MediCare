@@ -1,5 +1,3 @@
-
-
 <link rel="stylesheet" href='/css/doctors_appointment.css'>
 <div class="outer">
     <h1>total appointments</h1>
@@ -10,49 +8,26 @@
     else
     {%>
        <h1><%=appointment_doctor.appointments.length%></h1>
-
        <div class="inner">
           <table>
              <tr>
                 <th>Patient</th>
-               
                 <th>date</th>
-                <th>symptoms</th>
-                <th>mode</th>
-                <th>chat</th>
                 <th>view</th>
-                <th></th>
+                <th>cancel</th>
              </tr>
-             
              <%for( a of appointment_doctor.appointments)
          {%>
-              
-            
                <tr>
-
                <td><p><%=a.patient.name%></p></td>
                <td><p><%=a.date%></p></td>
-               <td><p><%=a.symptoms%></p></td>
-               <td><p><%=a.mode%></p></td>
-               <td><button class="btn" ><a clss="link-appoint" href="/consultations/consultDoctor/<%=a.patient.id%>"><img src='/images/icons8-chat-48.png' alt="can't open"></a></button></td>
-               <td><button class="+btn"><a  clss="link-appoint"href="/doctors/profile/<%=a.doctor.id%>"><img src='/images/view.png' alt="can't open"></a></button></td>
-               
-               <td><button ><a href="/appointments/cancel/<%=a.id%>">cancel</a></button></td>
-               
-               
-               
-               
-               
-               
+               <td><button class="btn" ><a clss="link-appoint" href="/consultations/consult/<%=a.id%>"><img src='/images/view.png' alt="can't open"></a></button></td>   
+               <td><button ><a href="/appointments/cancel/<%=a.id%>">delete</a></button></td>
             </tr>
-         
-             
          <%}%>
+        </table>
        </div>
-             
-          </table>
-         
-       
     <%}%>
 </div>
+
 

@@ -1,6 +1,30 @@
 <link rel="stylesheet" href='/css/profile_patient.css'>
 <div class="outer">
-    <h2>Name:<%=profile_patient.name%></h2>
-    <h2>Email:<%=profile_patient.email%></h2>
+    <div class="current">
+        <img src="<%=profile_patient.avatar%>" alt="No profile_pic" width="100">
+        <p><%= profile_patient.name %> </p>
+        <p><%= profile_patient.email %></p>
+        <p>Gender:<%= profile_patient.gender %></p>
+        <p>Phone:<%= profile_patient.phone %></p>
+        <p>Address:<%= profile_patient.address %></p>
+      </div>
+      <%if(locals.patient)
+      {%>
+           <%if(patient.id==profile_patient.id)
+           {%>
+            <div class="update">
+                <p>Update Information</p>
+                <form action="/patients/update/<%= profile_patient.id %>"  method="POST" enctype="multipart/form-data">
+                    <input type="file" name="avatar" id="" placeholder="Profile Picture">
+                    <input type="text" name="name" placeholder="Name"  value="<%=profile_patient.name%>" required> 
+                    <input type="email" name="email" placeholder="Email" value="<%=profile_patient.email%>" required>
+                    <input type="tel" name="phone" placeholder="Phone"  value="<%=profile_patient.phone%>">
+                    <input type="text" name="gender" placeholder="Gender" value="<%=profile_patient.gender%>" >
+                    <input type="text" id="address" name="address" placeholder="address" value="<%=profile_patient.address%>">
+                    <input class="sub" type="submit"  value="Update">
+                </form>
+              </div>
+           <%}%>
+      <%}%>
     
 </div>

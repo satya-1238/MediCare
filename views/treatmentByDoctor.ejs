@@ -1,0 +1,45 @@
+<link rel="stylesheet" href='/css/doctors_appointment.css'>
+<div class="outer">
+    <h1 >Treatments</h1>
+        <h2><p><%=user.name%></p></h2>
+     <%=treatments.length%>
+     <div class="inner">
+        <table>
+            <tr>
+                <%if(user.user_type=='doctor')
+                {%>
+                    <th>Patient</th>
+                <%}
+                else{%>
+                    <th>Doctor</th>
+                <%}%>
+              
+               <th>disease</th>
+               <th>startDate</th>
+               <th>lastdate</th>
+               <th>view</th>
+               <th>delete</th>
+            </tr>
+            
+            <%for( a of treatments)
+        {%>
+              <tr>
+                <%if(user.user_type=='doctor')
+                {%>
+                    <td><p><%=a.patient.name%></p></td>
+                <%}
+                else{%>
+                    <td><p><%=a.doctor.name%></p></td>
+                <%}%>
+              <td><p><%=a.disease%></p></td>
+              <td><p><%=a.startDate%></p></td>
+              <td><p><%=a.lastDate%></p></td>
+              <td><button class="btn"><a  href="/treatments/detail/<%=a.id%>"><img src='/images/view.png' alt="can't open"></a></button></td>
+              <td><button ><a href="/appointments/cancel/<%=a.id%>">delete</a></button></td>
+              </tr>
+        <%}%>
+      </div>
+         </table>
+
+     </div >
+</div>

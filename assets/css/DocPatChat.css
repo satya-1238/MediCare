@@ -1,38 +1,41 @@
-
-
 .outer{
     
     margin-top:10rem;
-    height: 100vh;
+    min-height: 100vh;
+
     /* padding: 2rem; */
     /* background-color: yellow; */
+}
+.inner{
+    display: flex;
+    flex-direction: column;
+    /* justify-content: space-evenly; */
+    margin: 1rem;
+    margin-top: 10%;
+   
 }
 .info{
     display: flex;
     justify-content:space-around;
     align-items: center;
-    /* padding: 2rem; */
-
-   border-bottom: 2rem dashed black;
-    
-    /* background-color: blue; */
+    padding: 2rem;
+    padding-top: 0;
+   border-bottom: 0.1rem dashed black;
 }
 .user{
-    
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
-    /* background-color: cyan; */
+    justify-content:center;
 }
-p{
+.name{
     font-weight: bolder;
     font-size: 1.5rem;
+    text-transform: capitalize;
 }
-.chat{
-    margin-top: 1rem;
-    margin-bottom: 1rem;
-    width: 100%;
-    height: 70%;
+.prop{
+    font-weight:bold;
+    font-size: 1.1rem;
+    text-transform: capitalize;
 }
 

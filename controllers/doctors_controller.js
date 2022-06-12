@@ -17,7 +17,7 @@ module.exports.SignUp_doctor = function (req, res) {
 // Access the profile specific to doctor
 module.exports.profile = function (req, res) {
 
-    // console.log(req.params.id);
+    console.log(req.params.id);
     // console.log(req.session.id);
     Doctor.findById(req.params.id, function (err, doctor) {
         
@@ -172,7 +172,7 @@ module.exports.update=async function(req,res){
             doctor.email=req.body.email;
             doctor.phone=req.body.phone;
             doctor.locations=req.body.locations;
-        
+            doctor.qualifications=req.body.qualifications;
             doctor.services=req.body.services;
             doctor.gender=req.body.gender;
             doctor.experience=req.body.experience;

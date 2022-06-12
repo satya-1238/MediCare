@@ -1,5 +1,5 @@
+
 #services{
-    
     margin-top:5rem;
     background-color: rgb(192, 195, 206);
     /* background-image: url(covid-img.jpg); */
@@ -8,6 +8,7 @@
     display: grid;
     grid-template-columns: auto auto auto;
     padding: auto;
+    padding: 2rem;
 }
 .grid-item{
     background-color: rgba(255,255,255,0.8);

@@ -64,5 +64,57 @@ module.exports.destroySession=function(req,res){
     return res.redirect('/');
 }
 
+//update patient's profile
+module.exports.update=async function(req,res){
+    // console.log(req.user);
+    // console.log(req.body);
+    if(req.user.id==req.params.id)
+    {
+        console.log("update");
+        try{
+            let patient=await Patient.findById(req.params.id);
+            Patient.uploadedAvatar(req,res,function(err)
+            {
+                  if(err)
+                  {
+                      console.log("error in multer",err);
+                    
+                  }
+                  patient.name=req.body.name;
+                  patient.email=req.body.email;
+                  patient.phone=req.body.phone;
+                  patient.address=req.body.address;
+                  patient.gender=req.body.gender;
+                  patient.weight=req.body.patient;
+                  patient.temperature=req.body.temperature;
+                  patient.bloodpressure=req.body.bloodpressure;
+                  if(req.file)
+                  {
+                      // if(doctor.avatar)
+                      // {
+                      //     fs.unlinkSync(path.join(__dirname,'..',doctor.avatar));
+                      // }
+                      //saving the uploaded file into the db doctor; 
+                      
+                      patient.avatar=Patient.avatarPath+'/'+req.file.filename;
+                  }
+                patient.save()
+            });
+            // console.log(patient);
+            return res.redirect('back');
+        }
+        catch(error)
+        {
+            console.log(error)
+            return res.redirect('back');
+        }
+    }
+    else{
+        console.log("Unathorised User");
+        return res.redirect('/');
+    }
+}
+
+
 
 

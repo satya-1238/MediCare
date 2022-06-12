@@ -1,49 +1,51 @@
 <link rel="stylesheet" href='/css/DocPatChat.css'>
 <div class="outer">
+    <div class="inner">
     <div class="info">
-       
-        <%if(locals.patient)
-        {%> 
-            <div class="user">
-                <img src="<%=appointmented_doctor.avatar%>" alt="No profile_pic" width="100">
-                <p><%=appointmented_doctor.name%></p>
-            </div>
-            <div class="user">
-                <!-- <img src="<%=appointmented_doctor.avatar%>" alt="No profile_pic" width="100"> -->
-                    <p><%=patient.name%></p>
-               </div>
-        <%}%>
-        <%if(locals.doctor)
-        {%> 
-            <div class="user">
-                
-                <p><%=appointmented_patient.name%></p>
-            </div>
-            <div class="user">
-                    <h2>Doctor</h2>
-                    <img src="<%=doctor.avatar%>" alt="No profile_pic" width="100">
-                    <p><%=doctor.name%></p>
-               </div>
+        <div class="user">
+            <img src="<%=appointment.doctor.avatar%>" alt="No profile_pic" width="100">
+            <p class="name"><%=appointment.doctor.name%></p>
+             <p class="prop"><%=appointment.doctor.qualifications%></p>
+             <p class="prop"><i class="fas fa-phone"></i><%=appointment.doctor.phone%></p>
+        </div>
+        <div class="user" >
+            <%if(user.user_type==='patient')
+            {%> 
+                    <input id="from" type="hidden"  value='<%=appointment.patient.name%>'required/>
+                    <input id="to" type="hidden" value="<%=appointment.doctor.name%>" required/>
+                    <input id="senderEmail" type="hidden" value="<%=appointment.patient.email%>" required/>
+                    <input id="recieverEmail" type="hidden" value="<%=appointment.doctor.email%>" required/>
+                    <input id="chatroom" type="hidden" value="<%=appointment.patient.id%><%=appointment.doctor.id%>" required/>
+                    <button class="btn2" onclick="storeDetails()"><img src="/images/icons8-chat-48.png" alt="">Click to start chat </button>
+            <%}
+            else
+            {%> 
+                    <input id="from" type="hidden"  value='<%=appointment.doctor.name%>'required/>
+                    <input id="to" type="hidden" value="<%=appointment.patient.name%>" required/>
+                    <input id="senderEmail" type="hidden" value="<%=appointment.doctor.email%>" required/>
+                    <input id="recieverEmail" type="hidden" value="<%=appointment.patient.email%>" required/>
+                    <input id="chatroom" type="hidden" value="<%=appointment.patient.id%><%=appointment.doctor.id%>" required/>
+                    <button class="btn2" onclick="storeDetails()"><img src="/images/icons8-chat-48.png" alt="">Click to start chat</button>
+            <%}%>
+        </div>
+        <div class="user">
+                <img src="<%=appointment.patient.avatar%>" alt="No profile_pic" width="100">
+                <p class="name"><%=appointment.patient.name%></p>
+                <p class="prop">Symptoms: <%=appointment.symptoms%></p>
+                <p class="prop">Mode of Appointment: <%=appointment.mode%></p>
+                <p class="prop">Date of Appointment: <%=appointment.date%></p>
+                <p class="prop"><i class="fas fa-phone"></i> <%=appointment.patient.phone%></p>
 
-        <%}%>
-        
-       
+        </div>
     </div>
-    <div class="chat">
-         <%-include('_chat')-%>
+    <div class="chat-credential">
     </div>
+        <div class="chat">
+            <%-include('_chat')-%>
+       </div>    
+</div>
 </div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.4.1/socket.io.js" integrity="sha512-MgkNs0gNdrnOM7k+0L+wgiRc5aLgl74sJQKbIWegVIMvVGPc1+gc1L2oK9Wf/D9pq58eqIJAxOonYPVE5UwUFA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qs/6.9.4/qs.min.js" integrity="sha256-ijqLssetA1NMNjZ+w1zaUafQQLm4IW5OoM8O+4tatME=" crossorigin="anonymous">
+</script>
 <script src='/js/chat.js'></script>
-<%if(locals.doctor)
-{%>
-    <script>
-            new Chat('chat-box','<%=locals.doctor.email%>')    
-    </script>
-<%}%>
-<%if(locals.patient)
-{%>
-    <script>
-            new Chat('chat-box','<%=locals.patient.email%>')    
-    </script>
-<%}%>

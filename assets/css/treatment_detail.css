@@ -1,0 +1,112 @@
+.outer{
+    margin-top:10rem;
+    min-height: 100vh;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    justify-content: space-between;
+}
+ .current{
+    display: flex;
+    flex-direction: column;
+    width:40%;
+    height: 80%;
+    /* background-color: white; */
+    text-align: center;
+    margin-left: 0rem; 
+    margin: 2rem;
+    /* justify-content: center; */
+    /* border-radius: 20px; */
+    padding: 2rem;
+   }
+   .current p{
+    /* margin-top: 3rem; */
+    border-radius: 0.5rem;
+    border-style: none;
+    border-bottom: 3px solid #2b2721;
+    height: 1.0rem; 
+    text-align: center;
+    background-color:rgb(75, 70, 70);
+    padding: 0.5rem;
+    font-size: 1.2rem;
+    color: whitesmoke;
+    letter-spacing: 0.2rem;
+    font-weight: bolder;
+   }
+  .update {
+    display: flex;
+    flex-direction: column;
+    height: 80%;
+    width: 30%;
+    background-color: white;
+    text-align: center; 
+    margin: 2rem;
+    /* justify-content: center; */
+    /* border-radius: 20px; */
+    padding: 2rem;
+  }
+    .update form {
+      display: flex;
+      flex-direction: column; 
+      margin-top: 1rem;
+    }
+    .update input {
+      margin: 8px;
+      border-radius: 0.5rem;
+      border-style: none;
+      border-bottom: 3px solid #2b2721;
+      height: 2rem; 
+      text-align: center;
+      
+      /* font-weight: bolder; */
+    }
+   .update p{
+    /* margin: 8px; */
+    margin-top: 3rem;
+    border-radius: 0.5rem;
+    border-style: none;
+    border-bottom: 3px solid #2b2721;
+    height: 1.0rem; 
+    text-align: center;
+    background-color:rgb(75, 70, 70);
+    padding: 0.5rem;
+    font-size: 1.2rem;
+    color: whitesmoke;
+    letter-spacing: 0.2rem;
+    font-weight:bolder;
+  }
+   textarea{
+    margin: 8px;
+    border-radius: 0.5rem;
+    
+    border-bottom: 3px solid #2b2721;
+    border-top: 3px solid #2b2721;
+    /* border-style: none; */
+    /* background-color: blanchedalmond; */
+    /* font-weight: bolder; */
+    color: black;
+   }
+  a{
+     text-decoration: none;
+     color: black;
+     /* font-weight:bolder; */
+  }
+  a :hover{
+    color: whitesmoke;
+  }
+ .sub:hover{
+   background-color:rgb(135, 135, 243);
+   color: whitesmoke; 
+ }
+ .sub{
+    margin: 8px;
+    border-radius: 0.5rem;
+    border-style: none;
+    border-bottom: 3px solid #2b2721;
+    height: 2rem; 
+    text-align: center;
+    /* font-weight:bolder */
+ }
+  
+  

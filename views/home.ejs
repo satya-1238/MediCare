@@ -5,16 +5,18 @@
         
         <div id="find-doctor">
            
-            <h1 id="find-heading" class="text-center">Find a Doctor</h1>
+            <h1 id="" class="text-center"><a href="/doctors/find_doctor">View All Doctors</a></h1>
             <div id="appointments">
                 <%if(locals.doctor){%>
                     <button><a href="/appointments/my/<%=doctor.id%>">appointments</a></button>
+                    <button><a href="/treatments/ByMe/<%=doctor.id%>">Treatments</a></button>
                 <%}%>
                 <%if(locals.patient){%>
                     <button><a href="/appointments/patient_appointment/<%=patient.id%>">appointments</a></button>
+                    <button><a href="/treatments/my/<%=patient.id%>">Treatment</a></button>
                 <%}%>
             </div> 
-            <h1 id="" class="text-center"><a href="/doctors/find_doctor">View All Doctors</a></h1>
+            <h1 id="find-heading" class="text-center">Find a Doctor</h1>
             <div class="find-type" id="find-type">
                 <div class="find-div" id="loc">
                     <div>

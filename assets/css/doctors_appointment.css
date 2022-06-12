@@ -1,7 +1,7 @@
 .outer{
     
     margin-top:10rem;
-    height: 100vh;
+    min-height: 100vh;
     padding: 2rem;
    
     /* background-color: yellow; */

@@ -1,7 +1,8 @@
 const mongoose=require('mongoose');
 const multer=require('multer');
 const path=require('path');
-const AVATAR_PATH=path.join('/uploads/doctors/avatars');
+const AVATAR_PATH=path.join('/public/uploads/avatars');
+console.log(AVATAR_PATH);
 const doctorSchema=new mongoose.Schema({
     email:{
         type:String,
@@ -15,6 +16,9 @@ const doctorSchema=new mongoose.Schema({
     name:{
         type:String,
         required:true
+    },
+    qualifications:{
+        type:String,
     },
     services:{
         type:String
@@ -59,10 +63,13 @@ doctorSchema.index(
  
 let storage = multer.diskStorage({
     destination: function (req, file, cb) {
-        // console.log(req.params.id);
+        console.log(req.params.id);
+        console.log(__dirname);
       cb(null, path.join(__dirname,'..',AVATAR_PATH));
+       console.log(path);
     },
     filename: function (req, file, cb) {
+        console.log(file.fieldname + '-' + Date.now()+'-'+req.params.id);
       cb(null, file.fieldname + '-' + Date.now()+'-'+req.params.id);
     }
   })

@@ -1,23 +1,26 @@
 <link rel="stylesheet" href='/css/home.css'>
 <body>
     <div id="home-container"> 
-            
-        
-        <div id="find-doctor">
-           
-            <h1 id="" class="text-center"><a href="/doctors/find_doctor">View All Doctors</a></h1>
-            <div id="appointments">
-                <%if(locals.doctor){%>
-                    <button><a href="/appointments/my/<%=doctor.id%>">appointments</a></button>
-                    <button><a href="/treatments/ByMe/<%=doctor.id%>">Treatments</a></button>
-                <%}%>
-                <%if(locals.patient){%>
-                    <button><a href="/appointments/patient_appointment/<%=patient.id%>">appointments</a></button>
-                    <button><a href="/treatments/my/<%=patient.id%>">Treatment</a></button>
-                <%}%>
-            </div> 
+       
+            <%if(locals.doctor){%>
+                <div class="container">
+                <button><a href="/appointments/my/<%=doctor.id%>">appointments</a></button>
+                <button><a href="/treatments/ByMe/<%=doctor.id%>">Treatments</a></button>
+                </div>
+            <%}%>
+            <%if(locals.patient){%>
+                <div class="container">
+                <button><a href="/appointments/patient_appointment/<%=patient.id%>">appointments</a></button>
+                <button><a href="/treatments/my/<%=patient.id%>">Treatment</a></button>
+            </div>
+            <%}%>
+        <div id="options"> 
+            <h2 id="view-doctor" class="text-center"><a href="/doctors/find_doctor">View All Doctors</a></h2>
             <h1 id="find-heading" class="text-center">Find a Doctor</h1>
+        </div>
+        <div id="find-doctor">    
             <div class="find-type" id="find-type">
+                
                 <div class="find-div" id="loc">
                     <div>
                 
@@ -34,8 +37,6 @@
                             <option value="02514">kunjGali,Mathura</option>
                             <option value="23561">Araji,Prayagraj</option>
                         </select>
-
-
                         <button type="submit" class="go" id="loc-btn">
         
                             <img src='/images/arrow-right.png' alt="">

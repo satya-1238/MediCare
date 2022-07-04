@@ -14,3 +14,9 @@ module.exports.consult = async function (req, res) {
     });
   }
 
+module.exports.meeting=async function(req,res)
+{
+   return res.render('video_chat',{
+      title:'New Meeting',
+   })
+}

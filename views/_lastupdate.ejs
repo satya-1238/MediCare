@@ -1,0 +1,25 @@
+<div class="hidden-content">
+    <div class="heading"><h4 >Last update of Treatment</h4></div>
+    <div class="hidden-detail">
+    <div class="list" style="background:whitesmoke">
+    <%for(a of update)
+    {%>
+        <div>
+            <ul>
+                <li><%=a.content%></li>
+            </ul>
+        </div>
+    <%}%>
+  </div>
+<%if(treatment.doctor.id===user.id)
+{%>
+   <div class="update">
+        <form action="/treatments/lastupdate/<%= treatment.id %>"  method="POST">
+           <label for="lastupdate">write current update of treatment</label>
+           <textarea name="lastupdate" id="lastupdate" cols="40" rows="5"></textarea>
+           <input class="sub" type="submit"  value="Update">
+        </form>
+   </div>
+<%}%>
+</div>
+</div>

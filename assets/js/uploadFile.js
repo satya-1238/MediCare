@@ -1,7 +1,8 @@
 var cancel_addUser = document.getElementById('cancel-btn');
  
-console.log('uploadfile');
-$('.uploadImage').submit(function(e){
+// console.log('uploadfile');
+$('.uploadFile').submit(function(e){
+    console.log("ASFa");
     var title = $('#title').val();
     var recieverName=$('#recieverName').val();
     var message = $('#message').val();

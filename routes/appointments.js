@@ -7,6 +7,7 @@ router.post('/create',passport.checkAuthentication,appointmentController.create)
 router.get('/my/:id',passport.checkAuthentication,appointmentController.my);
 router.get('/patient_appointment/:id',passport.checkAuthentication,appointmentController.patient_appointment);
 router.get('/cancel/:id',passport.checkAuthentication,appointmentController.destroy);
+
 // router.post('/patientconfirm',appointmentController.confirm);
 
 // for exporting to outer files

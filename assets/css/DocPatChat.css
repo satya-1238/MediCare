@@ -1,10 +1,7 @@
 .outer{
-    
-    margin-top:10rem;
+    margin-top:-5rem;
     min-height: 100vh;
-
-    /* padding: 2rem; */
-    /* background-color: yellow; */
+    /* background-color: red; */
 }
 .inner{
     display: flex;
@@ -12,30 +9,48 @@
     /* justify-content: space-evenly; */
     margin: 1rem;
     margin-top: 10%;
-   
 }
 .info{
+    
     display: flex;
     justify-content:space-around;
     align-items: center;
     padding: 2rem;
-    padding-top: 0;
    border-bottom: 0.1rem dashed black;
+
 }
 .user{
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content:center;
+    /* justify-content:center; */
+}
+.user img{
+    height:150px;
+    width:150px;
+    /* margin-bottom: 0.5rem; */
+    border-radius: 50%;
+}
+.chat-btns{
+    display: flex;
+    flex-direction: row;
+}
+
+.chat-btns img{
+    height: 50%;
+    width: 50%;;
 }
 .name{
     font-weight: bolder;
     font-size: 1.5rem;
     text-transform: capitalize;
+    margin:0;
 }
 .prop{
     font-weight:bold;
     font-size: 1.1rem;
     text-transform: capitalize;
+    padding: 0;
+    margin: 0;
 }
 

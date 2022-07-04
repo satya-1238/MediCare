@@ -1,5 +1,90 @@
 .outer{
     margin-top:10rem;
-    height: 100vh;
-    /* background-color: yellow; */
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
+.detail{
+    display: flex;
+    background-color:rgb(235, 242, 244);
+    text-transform: capitalize;
+    color:#5769B0;
+    font-size: 20px;
+    text-shadow: 1px 1px white;
+    min-width: 50vw;
+    align-items: center;
+    justify-content: space-between;
+    padding-left:25px;
+    padding-right:25px;
+    border-radius: 10px;
+}
+.detail img{
+    height:200px;
+    width:200px;
+    /* margin: 2rem; */
+    /* border-radius: 50%; */
+
+}
+.update {
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    text-align: center; 
+    margin: 2rem;
+    align-items: center;
+    border-radius: 10px;
+    padding: 2rem;
+  }
+    .update form {
+      display: flex;
+      flex-direction: column; 
+      margin-top: 1rem;
+    }
+    .update input {
+      margin: 8px;
+      border-radius: 0.5rem;
+      border-style: none;
+      border-bottom: 3px solid #2b2721;
+      height: 2rem; 
+      text-align: center;
+      
+      /* font-weight: bolder; */
+    }
+    .radio
+    {
+        display: flex;
+        /* flex-direction: column; */
+    }
+    .radio ul{
+        display: flex;
+        list-style: none;
+        align-items: center;
+    }
+   .update p{
+    /* margin: 8px; */
+    margin-top: 3rem;
+    border-radius: 0.5rem;
+    border-style: none;
+    border-bottom: 3px solid #2b2721;
+    height: 1.0rem; 
+    text-align: center;
+    background-color:rgb(75, 70, 70);
+    padding: 0.5rem;
+    font-size: 1.2rem;
+    color: whitesmoke;
+    letter-spacing: 0.2rem;
+    font-weight:bolder;
+  }
+   textarea{
+    margin: 8px;
+    border-radius: 0.5rem;
+    border-bottom: 3px solid #2b2721;
+    border-top: 3px solid #2b2721;
+    color: black;
+   }
+  .sub:hover{
+   background-color:rgb(135, 135, 243);
+   
+ }

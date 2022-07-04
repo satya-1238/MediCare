@@ -19,9 +19,6 @@ module.exports.newAppointment=function(appointment)
              return;
          }
         //  console.log('email sent to doctor successfully');
-                 
-
-         
          return;
     })
     let htmlString1 = nodeMailer.renderTemplate({appointment:appointment},'/appointments/mailtopatient.ejs');
@@ -38,7 +35,6 @@ module.exports.newAppointment=function(appointment)
              return;
          }
         //  console.log('email sent to patient successfully');
-         
          return;
     })
 }

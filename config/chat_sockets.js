@@ -10,17 +10,12 @@ module.exports.chatSockets = function (socketServer) {
       credentials:true,
     },
   });
-  // recieve connection
+
   io.sockets.on("connection", function (socket) {
     console.log("new connection received", socket.id);
-
-    //Collect message and insert into database
     socket.on("chatMessage", (data) => {
-      // console.log(data);
-      //recieves message from client-end along with sender's and reciever's details
       console.log("Inside Chat Message");
       var formatteddata = formatMessage(data);
-      // console.log("formatteddata:",formatteddata);
       Chat.create({
         from: formatteddata.from,
         to: formatteddata.to,
@@ -38,17 +33,13 @@ module.exports.chatSockets = function (socketServer) {
          }
          socket.emit('message',formatteddata);
       });
-      // io.in(data.chatroom).emit('message',formatteddata);
       OnlineUser.findOne({ email: data.recieverEmail }, (err, res) => {
         //checks if the recipient of the message is online
         if (err) throw err;
         console.log('res in order to emit to reciver',res);
         if (res != null)
         {
-          console.log('Im sending but not know what happen at your end on:',res.ID);
-          // socket.to(res.ID).emit('message',formatteddata);
           socket.to(data.chatroom).emit('message',formatteddata);
-          // io.in(data.chatroom).emit('message',formatteddata)
         }
         //if the recipient is found online, the message is emmitted to him/he
       });
@@ -80,7 +71,7 @@ module.exports.chatSockets = function (socketServer) {
                 console.log('error',err);
                 return;
             }
-            //  console.log("ASdqad");
+            
             // console.log(chat);
             socket.emit('output',chat); //emits the entire chat history to client
         });

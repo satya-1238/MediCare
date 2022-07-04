@@ -16,13 +16,7 @@ router.use('/appointments',require('./appointments'));
 router.use('/api',require('./api'));
 router.use('/consultations',require('./consultations'));
 router.use('/treatments',require('./treatments'));
-
-
-
-
-
-
-
-
+router.use('/razorpay',require('./razorpay'));
 // for exporting to outer files
-module.exports=router;
+module.exports=router; 
+

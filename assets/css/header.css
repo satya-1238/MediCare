@@ -24,6 +24,7 @@
     font-weight: 500;
     color: white;
     font-family:  'Ubuntu', sans-serif;
+    text-transform: capitalize;
 
 }
 #logo{

@@ -4,15 +4,59 @@
 
 <div class="outer">
     <div class="current">
-        <img src="<%=profile_doctor.avatar%>" alt="No profile_pic" width="100">
-        <p><%= profile_doctor.name %> </p>
-        <p><%= profile_doctor.email %></p>
-        <p>Gender:<%= profile_doctor.gender %></p>
-        <p><i class="fas fa-phone"></i><%= profile_doctor.phone %></p>
-        <p><%= profile_doctor.qualifications%></p>
-        <p>Services:<%= profile_doctor.services %></p>
-        <p>Experience:<%= profile_doctor.experience %></p>
-        <p>Locations:<%= profile_doctor.locations %></p>
+      <div class="img-name">
+            <div class="img">
+              <img src="<%=profile_doctor.avatar%>" alt="No profile_pic" width="100">
+            </div>
+            <div class="detail">
+              <h3><%= profile_doctor.name %></h3>
+            </div>
+      </div>
+          <div class="lists">
+            <div class="services" >
+                <h6>Services</h6>
+                <ul>
+                  <li><%= profile_doctor.services %></li>
+                </ul>
+            </div>
+            <div class="locations">
+              <h6>Locations</h6>
+              <ul>
+                <li><%= profile_doctor.locations %></li>
+              </ul>
+           </div>
+            <div class="gender">
+               <h6>Gender</h6>
+               <ul>
+                <li><%= profile_doctor.gender %></li>
+               </ul>
+
+           </div>
+            <div class="emails">
+                <h6>Email</h6>
+                <ul>
+                  <li><%= profile_doctor.email %></li>
+                </ul>
+          </div>
+            <div class="phones">
+                <h6>Phone</h6>
+                <ul>
+                  <li><%= profile_doctor.phone %></li>
+                </ul>
+          </div>
+            <div class="qualifications">
+                <h6>Qualifications</h6>
+                <ul>
+                  <li><%= profile_doctor.qualifications%></li>
+                </ul>
+          </div>
+            <div class="experience">
+                <h6>Experience</h6>
+                <ul>
+                  <li><%= profile_doctor.experience %></li>
+                </ul>
+              </div>
+          </div>
       </div>
       <%if(locals.doctor)
       {%>

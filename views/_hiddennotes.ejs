@@ -1,0 +1,26 @@
+<div class="hidden-content">
+      <div class="heading">
+        <h4 >Notes regarding Treatment</h4>
+      </div>
+     <div class="hidden-detail">
+        <%if(treatment.doctor.id===user.id)
+        {%>
+            <div class="list" style="background:whitesmoke">
+                <%for(a of notes)
+                {%> <div>
+                    <ul>
+                        <li> date and time <%=a.datetime%>: <%=a.content%></li>
+                    </ul>
+                   </div>
+                <%}%>
+            </div>
+           <div class="update">
+                <form action="/treatments/notes/<%= treatment.id %>"  method="POST">
+                   <label for="notes">put notes to track treatment of patient</label>
+                   <textarea name="notes" id="notes" cols="40" rows="5"></textarea>
+                   <input class="sub" type="submit"  value="Update">
+                </form>
+           </div>
+     </div>
+<%}%>
+</div>

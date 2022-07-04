@@ -1,0 +1,48 @@
+<div class="lists">
+            <h1 class="heading">Vitals Signs and Weight</h1>
+            <div class="weight" >
+                <h6>Weight</h6>
+                <ul>
+                  <li><%=treatment.weight%></li>
+                </ul>
+            </div>
+            <div class="temperature">
+              <h6>Temperature</h6>
+              <ul>
+                <li><%=treatment.temperature%></li>
+              </ul>
+           </div>
+            <div class="bloodpressure">
+               <h6>Bloodpressure</h6>
+               <ul>
+                <li><%=treatment.bloodPressure%></li>
+               </ul>
+
+           </div>
+            <div class="pulserate">
+                <h6>Pulserate</h6>
+                <ul>
+                  <li><%=treatment.pulseRate%></li>
+                </ul>
+          </div>
+            <div class="respiration">
+                <h6>Respirationrate</h6>
+                <ul>
+                  <li><%=treatment.respirationRate%></li>
+                </ul>
+          </div>
+    </div>
+    <%if(treatment.doctor.id==user.id)
+    {%>
+        <div class="update">
+         <p>update</p>
+         <form action="/treatments/update/<%= treatment.id %>"  method="POST">
+            <input type="number" step="any" name="weight" id="" placeholder="weight">
+            <input type="number" step="any" name="temperature" id="" placeholder="temperature">
+            <input type="number"  name="bloodpressure" id="" placeholder="bloodpressure">
+            <input type="number"  name="pulserate" id="" placeholder="pulserate">
+            <input type="number"  name="respirationrate" id="" placeholder="respirationrate">
+            <input class="sub" type="submit"  value="Update">
+        </form>
+        </div>
+    <%}%>

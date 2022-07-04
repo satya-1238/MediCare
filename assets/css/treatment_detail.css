@@ -1,112 +1,151 @@
-.outer{
-    margin-top:10rem;
-    min-height: 100vh;
-    padding: 2rem;
+ 
+ .user img{
+  height: 100px;
+  width:100px;
+ }
+ .others{
+  visibility: hidden;
+  display: flex;
+  justify-content: center;
+ }
+ 
+  
+  .inner{
+    margin:0rem;
+    margin-top:1.5rem;
+    min-width: 100vw;
     display: flex;
-    flex-direction: column;
-    text-align: center;
-    justify-content: space-between;
+    align-items: center;
+  }
+  .info{
+    padding: 0;
+    padding-top: 2rem;
+    padding-bottom: 0.5rem;
+    justify-content:space-evenly;
+    width: 100vw;
+  }
+  #vital-sign{
+    min-width:100vw;
+    display: flex;
+    margin-left: 0rem; 
+    margin: 2rem;
+    padding: 2rem;
+    padding-top: 1rem;
 }
- .current{
+.lists{
     display: flex;
     flex-direction: column;
     width:40%;
-    height: 80%;
-    /* background-color: white; */
-    text-align: center;
     margin-left: 0rem; 
     margin: 2rem;
-    /* justify-content: center; */
-    /* border-radius: 20px; */
     padding: 2rem;
-   }
-   .current p{
-    /* margin-top: 3rem; */
-    border-radius: 0.5rem;
-    border-style: none;
-    border-bottom: 3px solid #2b2721;
-    height: 1.0rem; 
-    text-align: center;
-    background-color:rgb(75, 70, 70);
-    padding: 0.5rem;
-    font-size: 1.2rem;
-    color: whitesmoke;
-    letter-spacing: 0.2rem;
-    font-weight: bolder;
-   }
-  .update {
+  }
+  .list{
+    background-color: whitesmoke;
+    width: 80%;
+    margin: 2rem;
+    padding: 2rem;
     display: flex;
     flex-direction: column;
-    height: 80%;
-    width: 30%;
-    background-color: white;
-    text-align: center; 
-    margin: 2rem;
-    /* justify-content: center; */
-    /* border-radius: 20px; */
+  }
+  /* History Part */
+  .history-content{
+    background-color: whitesmoke;
+    height: 100vh;
+    margin: 2.5rem;
     padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+    /* align-items: center; */
+    /* justify-content: center; */
   }
-    .update form {
-      display: flex;
-      flex-direction: column; 
-      margin-top: 1rem;
-    }
-    .update input {
-      margin: 8px;
-      border-radius: 0.5rem;
-      border-style: none;
-      border-bottom: 3px solid #2b2721;
-      height: 2rem; 
-      text-align: center;
-      
-      /* font-weight: bolder; */
-    }
-   .update p{
-    /* margin: 8px; */
-    margin-top: 3rem;
-    border-radius: 0.5rem;
-    border-style: none;
-    border-bottom: 3px solid #2b2721;
-    height: 1.0rem; 
-    text-align: center;
-    background-color:rgb(75, 70, 70);
-    padding: 0.5rem;
-    font-size: 1.2rem;
-    color: whitesmoke;
-    letter-spacing: 0.2rem;
-    font-weight:bolder;
-  }
-   textarea{
-    margin: 8px;
-    border-radius: 0.5rem;
-    
-    border-bottom: 3px solid #2b2721;
-    border-top: 3px solid #2b2721;
-    /* border-style: none; */
-    /* background-color: blanchedalmond; */
-    /* font-weight: bolder; */
-    color: black;
-   }
-  a{
-     text-decoration: none;
-     color: black;
-     /* font-weight:bolder; */
-  }
-  a :hover{
-    color: whitesmoke;
-  }
- .sub:hover{
-   background-color:rgb(135, 135, 243);
-   color: whitesmoke; 
+  .history-content li,.hidden-content li{
+    color:rgb(95, 95, 151);
+  display: block;
+  font-size: 18px;
+  font-weight: bolder;
+  letter-spacing: 0.85px;
+  margin: 15px 0 0;
+  padding: 10px;
+  border-bottom: 1.5px solid lightgray;
+}
+ 
+.hidden-content{
+  display: flex;
+  flex-direction: column;
+}
+.hidden-detail{
+  display: flex;
+  /* width: 100vw; */
+}
+.heading{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #ff2625;
+  font-size: 25px;
+  font-weight: bold;
+}
+
+/* for reports part */
+h1{
+  font-size: 30px;
+  color: #fff;
+  text-transform: uppercase;
+  font-weight: 300;
+  text-align: center;
+  margin-bottom: 15px;
+}
+table{
+  width:100%;
+  table-layout: fixed;
+}
+.table-header{
+  background-color: rgba(255,255,255,0.3);
  }
- .sub{
-    margin: 8px;
-    border-radius: 0.5rem;
-    border-style: none;
-    border-bottom: 3px solid #2b2721;
-    height: 2rem; 
-    text-align: center;
-    /* font-weight:bolder */
- }
-  
-  
+.table-content{
+  height:300px;
+  overflow-x:auto;
+  margin-top: 0px;
+  border: 1px solid rgba(255,255,255,0.3);
+}
+th{
+  padding: 20px 15px;
+  text-align: left;
+  font-weight: 600;
+  font-size: 13px;
+  color: #fff;
+  text-transform: uppercase;
+
+}
+td{
+  padding: 15px;
+  text-align: left;
+  vertical-align:middle;
+  font-weight: 300;
+  font-size: 13px;
+  color: #fff;
+  border-bottom: solid 1px rgba(255,255,255,0.1);
+}
+.reports-section{
+  padding: 2rem;
+  background-image: linear-gradient(to right,#bdc3c7,#4d7dae);
+  font-family:  'Ubuntu', sans-serif;
+  margin:2rem;
+  border-radius: 10px;
+}
+.report-container{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+h1{
+  font-size: 30px;
+  color: #fff;
+  text-transform: uppercase;
+  font-weight: 300;
+  text-align: center;
+  margin-bottom: 15px;
+}

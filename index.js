@@ -38,13 +38,16 @@ app.use(express.static('./assets'));
 
 
 // avalaible uploads path to browser
+// app.use('/uploads',express.static(__dirname+'/uploads'));
 app.use('/public',express.static(__dirname+'/public'));
 app.use(express.static(path.join(__dirname,'/public'))) 
 app.use(express.static(path.join(__dirname,'/public/uploads')))
 
 
 // for using layouts
-app.use(expressLayouts);
+app.use(expressLayouts); 
+// for razorpay
+app.use('/checkout',require('./routes/razorpay'))
 // extract style and scripts from subpages into the layout
 app.set('layout extractStyles',true);
 app.set('layout extractScripts',true);
@@ -74,10 +77,8 @@ app.use(session({
     )
     
 }));
-
 app.use(passport.initialize());
 app.use(passport.session());
-
 app.use(passport.setAuthenticatedUser);
 
 // Use express router

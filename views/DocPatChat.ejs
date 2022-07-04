@@ -6,9 +6,13 @@
             <img src="<%=appointment.doctor.avatar%>" alt="No profile_pic" width="100">
             <p class="name"><%=appointment.doctor.name%></p>
              <p class="prop"><%=appointment.doctor.qualifications%></p>
-             <p class="prop"><i class="fas fa-phone"></i><%=appointment.doctor.phone%></p>
+             <%if(appointment.doctor.phone)
+             {%>
+                <p class="prop"><i class="fas fa-phone"></i><%=appointment.doctor.phone%></p>
+             <%}%>
+            
         </div>
-        <div class="user" >
+        <div class="chat-btns user">
             <%if(user.user_type==='patient')
             {%> 
                     <input id="from" type="hidden"  value='<%=appointment.patient.name%>'required/>
@@ -17,6 +21,7 @@
                     <input id="recieverEmail" type="hidden" value="<%=appointment.doctor.email%>" required/>
                     <input id="chatroom" type="hidden" value="<%=appointment.patient.id%><%=appointment.doctor.id%>" required/>
                     <button class="btn2" onclick="storeDetails()"><img src="/images/icons8-chat-48.png" alt="">Click to start chat </button>
+                    <button class="btn2"><img src="/images/video-call.png" alt=""><a href="#">Click to start video chat</a></button>
             <%}
             else
             {%> 
@@ -25,7 +30,8 @@
                     <input id="senderEmail" type="hidden" value="<%=appointment.doctor.email%>" required/>
                     <input id="recieverEmail" type="hidden" value="<%=appointment.patient.email%>" required/>
                     <input id="chatroom" type="hidden" value="<%=appointment.patient.id%><%=appointment.doctor.id%>" required/>
-                    <button class="btn2" onclick="storeDetails()"><img src="/images/icons8-chat-48.png" alt="">Click to start chat</button>
+                    <button class="btn2" onclick="storeDetails()"><img src="/images/icons8-chat-48.png" alt="">click to start chat</button>
+                    <button class="btn2"><img src="/images/video-call.png" alt=""><a href="#">Click to start video chat</a></button>
             <%}%>
         </div>
         <div class="user">
@@ -35,15 +41,12 @@
                 <p class="prop">Mode of Appointment: <%=appointment.mode%></p>
                 <p class="prop">Date of Appointment: <%=appointment.date%></p>
                 <p class="prop"><i class="fas fa-phone"></i> <%=appointment.patient.phone%></p>
-
         </div>
     </div>
-    <div class="chat-credential">
-    </div>
-        <div class="chat">
+    <div class="chat">
             <%-include('_chat')-%>
-       </div>    
-</div>
+    </div>    
+   </div>
 </div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.4.1/socket.io.js" integrity="sha512-MgkNs0gNdrnOM7k+0L+wgiRc5aLgl74sJQKbIWegVIMvVGPc1+gc1L2oK9Wf/D9pq58eqIJAxOonYPVE5UwUFA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/qs/6.9.4/qs.min.js" integrity="sha256-ijqLssetA1NMNjZ+w1zaUafQQLm4IW5OoM8O+4tatME=" crossorigin="anonymous">

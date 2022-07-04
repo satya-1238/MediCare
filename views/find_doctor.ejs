@@ -17,30 +17,32 @@
                          <div class="grid-item" id="serv-1">
                              <ul class="outer">
                                  <ul class="photo-name">
-                                    
-                                     <li><img src="<%=d.avatar%>" alt="can't open"></li>
+                                    <li><img src="<%=d.avatar%>" alt="can't open"></li>
                                     
                                      <li class="name">
                 
                                         <h3><%=d.name%></h3>
                                      </li>
                                  </ul>
-                                 <li class="same"><p>Services</p></li>
-                                 <li class="same"><p>Locations</p></li>
-                                 <!-- <li class="same"><p>Languages</p></li> -->
+                                 <li class="same">
+                                    <h4>Services</h4>
+                                    <ul>
+                                        <li><%=d.services%></li>
+                                    </ul>
+                                </li>
+                                 <li class="same">
+                                    <h4>Locations</h4>
+                                    <ul>
+                                        <li><%=d.locations%></li>
+                                    </ul>
+                                 </li>
                                  <%if(locals.patient)
                                  {%>
                                     <li class="appointment"><a href="/appointments/do/<%=d.id%>">GET AN APPOINTMENT</a></li>
 
                                  <%}%>
-                                 
                                  <li class="appointment"><a href="/doctors/profile/<%=d.id%>">VIEW PROFILE</a></li>
                              </ul>
-                             
-                             <!-- <a href="">
-                                 <img src="/images/pathology.webp" alt="can't open">
-                                 <span><%=d.name%></span>
-                             </a> -->
                          </div>
                  <%} %> 
                          

@@ -1,33 +1,47 @@
 <link rel="stylesheet" href='/css/doctors_appointment.css'>
 <div class="outer">
-    <h1>total appointments</h1>
-    <%if(appointment_doctor.appointments.length==0)
-    {%>
-       <h1>!you have no any appointments </h1>
-    <%}
-    else
-    {%>
-       <h1><%=appointment_doctor.appointments.length%></h1>
-       <div class="inner">
-          <table>
-             <tr>
-                <th>Patient</th>
-                <th>date</th>
-                <th>view</th>
-                <th>cancel</th>
-             </tr>
-             <%for( a of appointment_doctor.appointments)
+     <div class="inner">
+         <%if(appointment_doctor.appointments.length==0)
          {%>
-               <tr>
-               <td><p><%=a.patient.name%></p></td>
-               <td><p><%=a.date%></p></td>
-               <td><button class="btn" ><a clss="link-appoint" href="/consultations/consult/<%=a.id%>"><img src='/images/view.png' alt="can't open"></a></button></td>   
-               <td><button ><a href="/appointments/cancel/<%=a.id%>">delete</a></button></td>
-            </tr>
-         <%}%>
-        </table>
-       </div>
-    <%}%>
+            <h1>!you have no any appointments </h1>
+         <%}
+         else
+         {%>
+            <h1>Total  appointments : <%=appointment_doctor.appointments.length%></h1>
+            <div class="table-header">
+              <table cellpadding="0" cellspacing="0" border="0">
+                <thead>
+                  <tr>
+                    <th>Patient</th>
+                    <th>Date</th>
+                    <th>View</th>
+                    <th>Delete</th>
+                  </tr>
+                </thead>
+              </table>
+            </div>
+            <div class="table-content">
+              <table cellpadding="0" cellspacing="0" border="0">
+                <tbody>
+                  <%for( a of appointment_doctor.appointments)
+         {%>
+                  <tr>
+                     <td><p><%=a.patient.name%></p></td>
+                     <td><p><%=a.date%></p></td>
+                     <td><button class="btn" ><a clss="link-appoint" href="/consultations/consult/<%=a.id%>"><img src='/images/view.png' alt="can't open"></a></button></td>   
+                     <td><button ><a href="/appointments/cancel/<%=a.id%>">delete</a></button></td>
+                  </tr>
+                  <%}%>
+                </tbody>
+              </table>
+            </div>
+            <%}%>
+         </div>
 </div>
-
+<script>
+$(window).on("load resize ", function() {
+   var scrollWidth = $('.table-content').width() - $('.table-content table').width();
+   $('.table-header').css({'padding-right':scrollWidth});
+ }).resize();
+ </script>
 

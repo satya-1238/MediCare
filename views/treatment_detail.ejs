@@ -1,111 +1,61 @@
 
+<link rel="stylesheet" href='/css/home.css'>
+<link rel="stylesheet" href='/css/DocPatChat.css'>
 <link rel="stylesheet" href='/css/treatment_detail.css'>
+<link rel="stylesheet" href="/css/profile_doctor.css">
+
 <div class="outer">
-    <h1>treatment Details</h1>
+    <div class="container">
+            <button class="btn" id="vital-sign-btn"><a href="#">Vital Sign and Weight</a></button>
+            <!-- <button class="btn" id="report-btn"><a href="/treatments/reports/<%=treatment.id%>">Reports</a></button> -->
+            <button class="btn" id="report-btn"><a href="#">Reports</a></button>
+            <button class="btn" id="update-btn"><a href="#">LastUpdate On Treatment</a></button>
+            <%if(user.user_type==='doctor')
+            {%>
+              <button class="btn" id="hidden-btn"><a href="#">Hidden Notes</a></button>
+            <%}%>
+            <button class="btn" id="history-btn"><a href="#">History</a></button>
+        </ul>
+    </div>
     <div class="inner">
-        <div class="upper">
-               <div class="current">
-                   <p>Patient's details</p>
-                   <img src="<%=treatment.patient.avatar%>" alt="No profile_pic" width="100">
-                   <br>
-                    <%=treatment.patient.name%>
-                     <br>
+        <div class="info">
+               <div class="user">
+                <img src="<%=treatment.doctor.avatar%>" alt="No profile_pic" width="100">
+                <p class="name"><%=treatment.doctor.name%></p>
+                 <p class="prop"><%=treatment.doctor.qualifications%></p>
+                 <%if(treatment.doctor.phone)
+                 {%>
+                    <p class="prop"><i class="fas fa-phone"></i><%=treatment.doctor.phone%></p>
+                 <%}%>
                </div>
-              <div class="current">
-                     <p>doctor's details</p>
-                     <img src="<%=treatment.doctor.avatar%>" alt="No profile_pic" width="100">
-                     <br>
-                      <%=treatment.doctor.name%>
-              </div>
-              <div class="">
-                  <ul>
-                      <li><button class="sub" id="p-vital-sign">Vital Sign and Weight</button></li>
-                      <li><button class="sub" ><a href="/treatments/reports/<%=treatment.id%>">Reports</a></button></li>
-                      <li><button class="sub" id="update-btn">LastUpdate On Treatment</button></li>
-                      <%if(user.user_type==='doctor')
-                      {%>
-                        <li><button class="sub" id="hidden-btn">Hidden Notes</button></li>
-                      <%}%>
-                      <li><button class="sub" id="history-btn">History</button></li>
-                  </ul>
-              </div>
-        </div>
-        <div class="lower" id="lower">
-            
+              <div class="user">
+                <img src="<%=treatment.patient.avatar%>" alt="No profile_pic" width="100">
+                <p class="name"><%=treatment.patient.name%></p>
+                <p class="prop">Disease: <%=treatment.disease%></p>
+                <p class="prop"><i class="fas fa-phone"></i> <%=treatment.patient.phone%></p>
+            </div>
+      </div>
+        <div class="others">
+            <div id="vital-sign">
+                <%-include('_vital_sign')-%>
+             </div>
+            <div id="reports">
+                <%-include('_reports')-%>
+             </div>
+            <div id="lastupdate">
+                <%-include('_lastupdate')-%>
+             </div>
+            <div id="history">
+                <%-include('_history')-%>
+             </div>
+             <%if(user.user_type==='doctor')
+             {%>
+                <div id="hiddennotes">
+                    <%-include('_hiddennotes')-%>
+                 </div>
+             <%}%>
         </div>
     </div>
-    <template id="vital-sign" >
-        <div class="current">
-            <p>Weight:<%=treatment.weight%></p>
-            <p>Temperature:<%=treatment.temperature%></p>
-            <p>Blood Pressure:<%=treatment.bloodPressure%></p>
-            <p>Pulse Rate:<%=treatment.pulseRate%></p>
-            <p>respiration Rate:<%=treatment.respirationRate%></p>
-        </div>
-       <%if(treatment.doctor.id==user.id)
-       {%>
-           <div class="update">
-            <p>update</p>
-            <form action="/treatments/update/<%= treatment.id %>"  method="POST">
-               <input type="number" step="any" name="weight" id="" placeholder="weight">
-               <input type="number" step="any" name="temperature" id="" placeholder="temperature">
-               <input type="number"  name="bloodpressure" id="" placeholder="bloodpressure">
-               <input type="number"  name="pulserate" id="" placeholder="pulserate">
-               <input type="number"  name="respirationrate" id="" placeholder="respirationrate">
-               <input class="sub" type="submit"  value="Update">
-           </form>
-           </div>
-       <%}%>
-    </template>
-    <template id="history-temp">
-        <p>History</p>
-        <div class="content">
-           <p>your History</p>
-           <!-- <%=history%> -->
-           <%for(a of history)
-           {%>
-            <p><%=a.content%></p>
-           <%}%>
-        </div>
-    </template>
-    <template id="update-temp">
-        <div class="lastupdate">
-            <%for(a of update)
-            {%>
-             <p><%=a.content%></p>
-            <%}%>
-        </div>
-        <%if(treatment.doctor.id===user.id)
-       {%>
-           <div class="update">
-                <form action="/treatments/lastupdate/<%= treatment.id %>"  method="POST">
-                   <label for="lastupdate">write current update of treatment</label>
-                   <textarea name="lastupdate" id="lastupdate" cols="40" rows="5"></textarea>
-                   <input class="sub" type="submit"  value="Update">
-                </form>
-           </div>
-       <%}%>
-    </template>
-    <template id="hidden-temp">
-        <div>Notes regarding Treatment</div>
-        <%if(treatment.doctor.id===user.id)
-       {%>
-           <div class="update">
-                <form action="/treatments/notes/<%= treatment.id %>"  method="POST">
-                   <label for="notes">put notes to track treatment of patient</label>
-                   <textarea name="notes" id="notes" cols="40" rows="5"></textarea>
-                   <input class="sub" type="submit"  value="Update">
-                </form>
-           </div>
-           <div>
-            <%for(a of notes)
-            {%>
-                <p> date and time <%=a.datetime%>: <%=a.content%></p>
-            <%}%>
-           </div>
-       <%}%>
-    </template>
-    
 </div>
 <script src="/js/treatment_detail.js"></script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/jquery.form/3.51/jquery.form.min.js"></script>
+

@@ -7,10 +7,12 @@ const History = require("../models/history");
 const appointmentsMailer = require("../mailers/appointments_mailer");
 const appointmentsWorker = require("../workers/appointment_worker");
 const queue = require("../config/kue");
-
+const Razorpay = require('razorpay');
+const instance =new Razorpay({
+  key_id: 'rzp_test_6OAYahwbspMKp4',
+  key_secret:'IPLKPxGUuJqlXUsQdfgJiZDD'
+});
 module.exports.create = async function (req, res) {
-  //    console.log(req.body);
-  //    console.log(typeof(req.body.date));
       var d=req.body.date;
       const yy=d.substring(0,4);
       const mm=d.substring(5,7);
@@ -28,7 +30,6 @@ module.exports.create = async function (req, res) {
   Treatment.findOne(
     { doctor: req.body.doctor, patient: req.body.patient },
     async function (err, treatment1) {
-      //  console.log(treatment1);
       if (!treatment1) {
         let treatment = await Treatment.create({
           doctor: req.body.doctor,
@@ -40,7 +41,6 @@ module.exports.create = async function (req, res) {
         treatment.appointments.push(appointment);
         treatment.save();
       } else {
-        // console.log(treatment1.appointments);
         treatment1.appointments.push(appointment);
         (treatment1.lastDate = req.body.date),
           (treatment1.disease = req.body.symptoms);
@@ -50,7 +50,7 @@ module.exports.create = async function (req, res) {
   );
 
   Doctor.findById(req.body.doctor, function (err, doctor) {
-    //  console.log(doctor.appointments);
+   
     doctor.appointments.push(appointment);
     doctor.save();
     Patient.findById(req.body.patient, async function (err, patient) {
@@ -67,37 +67,74 @@ module.exports.create = async function (req, res) {
         content: `Your booked an appointment on ${date} at ${time} with  Dr.${doctor.name}  for  ${d} having symptoms ${req.body.symptoms}`,
         datetime:datetime
     })
-      //    console.log(appointment);
-      //    console.log(appointment.id);
       let appointment1 = await Appointment.findById(appointment.id)
-        .populate({ path: "doctor", select: "name email" })
-        .populate({ path: "patient", select: "name email" })
+        .populate({ path: "doctor", select: "name email phone" })
+        .populate({ path: "patient", select: "name email phone" })
         .exec();
-      //    console.log(appointment1);
-      //   appointmentsMailer.newAppointment(appointment1);
       let job = queue.create("emails", appointment1).save(function (err) {
         if (err) {
           Console.log("error in enqueuing queue", err);
         }
         console.log("job enqueued : ", job.id);
       });
-
-      //    console.log(doctor);
-      //    console.log(patient);
-      return res.render("your_appointment", {
-        title: "your_appointment",
-        appointment: appointment,
-        appointed_doctor: doctor,
-      });
+       return res.render("your_appointment", {
+          title: "your_appointment",
+          appointment: appointment,
+          appointed_doctor: doctor,
+         });
     });
   });
 };
 
+module.exports.checkout=async function(req,res)
+{
+  var options = {
+    amount: 50000,
+    currency: 'INR',
+};
+instance.orders.create(options, function (err, order) {
+    if (err) {
+        console.log(err);
+    } else {
+        console.log(order); 
+        res.render('checkout', {
+          title:'payment',
+          amount: order.amount,
+           order_id: order.id});
+    }
+});
+}
+
+module.exports.paymentVerify=async function(req,res)
+{
+    console.log("welcome in payment verification");
+    body=req.body.razorpay_order_id + "|" + req.body.razorpay_payment_id;
+    var crypto = require("crypto");
+    var expectedSignature = crypto.createHmac('sha256', 'IPLKPxGUuJqlXUsQdfgJiZDD')
+                                    .update(body.toString())
+                                    .digest('hex');
+                                    console.log("sig"+req.body.razorpay_signature);
+                                    console.log("sig"+expectedSignature);
+    
+    if(expectedSignature === req.body.razorpay_signature){
+      console.log("Payment Success");
+        return res.status(200).json({
+            data: {
+                  title: "appointment",
+                  appointment: req.body.appointment_id,
+            },
+            message: "success"
+        });
+    }
+    else{
+      console.log("Payment Fail");
+    }
+}
+
 module.exports.show = function (req, res) {
   // console.log(req.params.id);
   Doctor.findById(req.params.id, function (err, doctor) {
-    // console.log("khan mila yrr");
-    // console.log(doctor);
+    
     return res.render("appointment", {
       title: "appointment",
       appointment_doctor: doctor,

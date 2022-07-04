@@ -3,13 +3,62 @@
 
 <link rel="stylesheet" href='/css/your_appointment.css'>
 <div class="outer">
-    <div class="inner">
-     <p>Name  <%=patient.name%></p>
-     <p>Doctor  <%=appointed_doctor.name%></p>
-     <p>Symptoms  <%=appointment.symptoms%></p>
-     <p>Date <%=appointment.date%></p>
-     <p><%=appointment.mode%></p>
-     <p>You appointment booked successfully</p>
-     
+    <button class="print-btn"onclick="window.print();">Print</button>
+    <div class="reciept">
+         <p>Your Appointment</p>
+         <div class="lists">
+            <div class="f">
+                <h6>Name</h6>
+                <ul>
+                    <li>
+                        <%=patient.name%>
+                    </li>
+                </ul>
+            </div>
+            <div class="f">
+                <h6>Doctor</h6>
+                <ul>
+                    <li>Dr.<%=appointed_doctor.name%></li>
+                </ul>
+            </div>
+            <div class="f">
+                <h6>Symptoms</h6>
+                <ul>
+                    <li><%=appointment.symptoms%></li>
+                </ul>
+            </div>
+            <div class="f">
+                <h6>Date</h6>
+                <ul>
+                    <li><%=appointment.date%></li>
+                </ul>
+            </div>
+            <div class="f">
+                <h6>Mode of Appointment</h6>
+                <ul>
+                    <li><%=appointment.mode%></li>
+                </ul>
+            </div>
+            <div class="s">
+                <ul>
+                    <%if(appointment.mode=='offline')
+                    {%>
+                        <li>Your Appointment booked successfully.</li>
+                        <li>Take Your reciept and come with reciept for consultation. </li>
+                    <%}
+                    else
+                    {%>
+                        <li>Your Appointment booked successfully. </li>
+                        <li>Exact time for consultation will convey to you by message later.</li>
+                    <%}%>
+                    <%if(appointed_doctor.phone)
+                    {%>
+                        <li>for any query contact us <i class="fas fa-phone"></i><%=appointed_doctor.phone%>.</li>
+                    <%}%>
+                    
+                </ul>
+            </div>
+         </div> 
     </div>
+
 </div>

@@ -6,3 +6,9 @@ module.exports.SignIn=function(req,res)
         title:"Medicare-SignIn"
     })
 }
+
+module.exports.Issue=function(req,res)
+{
+    
+    return res.redirect('back');
+}

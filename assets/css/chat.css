@@ -45,12 +45,13 @@ a {
 	padding: 5px 15px;
 	background: white;
 	color:  #7386ff;
-	width: 150px;
-	height:120px;
+	width: 160px;
+	height:140px;
 	border-radius:50%;
 	border-style: none;
 	font-size: 17px;
 	font-weight: 900;
+	margin:1rem;
 }
  .btn2:active{
 	background:#7386ff;
@@ -62,7 +63,7 @@ a {
 
 .chat-container {
 	max-width: 1100px;
-	background: #fff;
+	background: whitesmoke;
 	margin: 30px auto;
 	overflow: hidden;
 }
@@ -93,40 +94,41 @@ a {
 	text-align: right;
 	padding: 10px;
 	margin-bottom: 15px;
-	background-color: #e6e9ff;
+	 background: rgb(188, 246, 188); 
 	border-radius: 5px;
 }
 .chat-messages .other-message {
 	text-align: left;
 	padding: 10px;
 	margin-bottom: 15px;
-	/* background-color:#9feab5; */
-	background-color:rgb(252, 244, 232);
+	background-color:white;
 	border-radius: 5px;
 }
 
 .chat-messages .self-message .meta {
-	font-size: 15px;
+	font-size: 17px;
 	font-weight:bolder;
 	color:rgb(0, 0, 255);
+	text-transform: capitalize;
 	/* opacity: 0.7; */
 	margin-bottom: 7px;
 }
 .chat-messages .other-message .meta {
-	font-size: 15px;
+	font-size: 17px;
 	font-weight: bolder;
+	text-transform: capitalize;
 	color:red;
 	opacity: 0.7;
 	margin-bottom: 7px;
 }
 
 .chat-messages .self-message .meta span {
-	 /* color: #777; */
+	 font-size: 12px;
 	 color: rgb(72, 71, 71);
 	
 }
 .chat-messages .other-message .meta span {
-	/* color: #777; */
+    font-size: 12px;
 	color:black
 	
 }

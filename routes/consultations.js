@@ -5,6 +5,7 @@ const DoctorController=require('../controllers/doctors_controller');
 const ConsultController=require('../controllers/consultation_controller');
 
 router.get('/consult/:id',ConsultController.consult);
+router.get('/meeting',ConsultController.meeting);
 
 
 module.exports=router;

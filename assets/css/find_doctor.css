@@ -90,11 +90,8 @@ li{
 }
 .same{
     font-size: 1.3rem;
-    text-align:left;
     margin-left:2rem;
     margin-right: 2rem;
-    text-transform: uppercase;
-    color:rgb(223, 76, 39);
     background-color:rgb(218, 214, 214);
     display: flex;
     justify-content: left;
@@ -105,6 +102,25 @@ li{
     font-weight: bolder;
 }
 
+.same  h4{
+    text-align:left;
+    /* color:#5769B0; */
+    color:#ff2625;
+  letter-spacing: 1.85px;
+  min-width: 200px;
+  text-transform: uppercase;
+  width: 200px;
+  padding-left: 15px;
+}
+.same li{
+    /* color:#000000B3; */
+    color:rgb(10, 10, 243);
+  display: block;
+    font-size: 1.3rem;
+  font-weight: bolder;
+  letter-spacing: 1.85px;
+  text-transform: capitalize;
+}
 .appointment{
     display: flex;
     align-items: center;

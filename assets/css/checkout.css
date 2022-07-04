@@ -1,0 +1,64 @@
+.container{
+    margin-left: 5rem;  
+    margin-top: 5rem; 
+    text-align: center; 
+}  
+.card{  
+    max-width: 30%; 
+    padding-left: .5rem; 
+    padding-bottom: 5rem; 
+    
+} 
+h4{  
+    color: blue; 
+    font-size: 1.5rem; 
+    margin-bottom: 10px;
+} 
+#person-name { 
+    max-width: 65%;
+ font-size: 1.5rem; 
+ padding-left: 20px;
+ outline: none; 
+ border-radius: 50px;
+ border: 2px solid black;
+} 
+#card_number{ 
+    max-width: 65%;
+    font-size: 1.5rem; 
+    padding-left: 20px;
+    outline: none; 
+    border-radius: 50px; 
+    border: 2px solid black;
+} 
+#card_expiry{ 
+    max-width: 65%;
+    font-size: 1.5rem; 
+    padding-left: 20px;
+    outline: none; 
+    border-radius: 50px; 
+    border: 2px solid black;
+}
+#card_cvv{ 
+    max-width: 65%;
+    font-size: 1.5rem; 
+    padding-left: 20px;
+    outline: none; 
+    border-radius: 50px;
+    border: 2px solid black;
+    padding-top: 8px;
+} 
+#payment{ 
+    max-width: 65%;
+    font-size: 1.5rem; 
+    padding-left: 10px;
+    outline: none; 
+    border: 2px solid black;
+    padding-top: 10px;
+} 
+.Pay input[type=button] {
+    font-size: 1.7rem; 
+    margin-top: 2rem;
+    background-color: blue; 
+    border-radius: 60px; 
+    color: white;
+}

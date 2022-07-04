@@ -1,12 +1,41 @@
-<link rel="stylesheet" href='/css/profile_patient.css'>
+<link rel="stylesheet" href='/css/profile_doctor.css'>
 <div class="outer">
     <div class="current">
-        <img src="<%=profile_patient.avatar%>" alt="No profile_pic" width="100">
-        <p><%= profile_patient.name %> </p>
-        <p><%= profile_patient.email %></p>
-        <p>Gender:<%= profile_patient.gender %></p>
-        <p>Phone:<%= profile_patient.phone %></p>
-        <p>Address:<%= profile_patient.address %></p>
+        <div class="img-name">
+            <div class="img">
+                <img src="<%=profile_patient.avatar%>" alt="No profile_pic" width="100">
+            </div>
+            <div class="detail">
+                <h3><%= profile_patient.name %></h3>
+            </div>
+        </div>
+        <div class="lists">
+            <div class="emails">
+                <h6>Email</h6>
+                <ul>
+                  <li><%= profile_patient.email %></li>
+                </ul>
+            </div>
+            <div class="phone">
+                <h6>Phone</h6>
+                <ul>
+                  <li><%= profile_patient.phone %></li>
+                </ul>
+            </div>
+            <div class="gender">
+                <h6>Gender</h6>
+               <ul>
+                <li><%= profile_patient.gender %></li>
+               </ul>
+
+            </div>
+             <div class="locations">
+                <h6>Address</h6>
+                <ul>
+                  <li><%= profile_patient.address %></li>
+                </ul>
+             </div>
+        </div>
       </div>
       <%if(locals.patient)
       {%>

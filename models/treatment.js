@@ -31,7 +31,7 @@ const treatmentSchema=new mongoose.Schema({
     pulseRate:{
         type:Number
     },
-    RespirationRate:{
+    respirationRate:{
         type:Number
     },
     startDate:{
